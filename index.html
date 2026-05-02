@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>As Arabic Academy</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@300;400;500&family=Cinzel:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:      #FAFAF8;
+  --bg2:     #F3F1EC;
+  --bg3:     #E8E4DC;
+  --ink:     #18160F;
+  --ink2:    #2E2B22;
+  --ink3:    #5A5448;
+  --accent:  #9C6D3E;
+  --accent2: #C4934F;
+  --sage:    #4A7A5A;
+  --border:  rgba(24,22,15,0.12);
+  --border2: rgba(24,22,15,0.22);
+  --ff-s:   'Cormorant Garamond', Georgia, serif;
+  --ff-b:   'Outfit', sans-serif;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;font-size:17px;}
+body{font-family:var(--ff-b);font-weight:300;background:var(--bg);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased;line-height:1.7;}
+::-webkit-scrollbar{width:3px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:var(--border2);}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;display:flex;align-items:center;justify-content:space-between;padding:0 6%;background:rgba(250,250,248,0.96);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:box-shadow 0.3s;}
+nav.scrolled{box-shadow:0 2px 24px rgba(24,22,15,0.08);}
+.logo{font-family:var(--ff-s);font-size:1.3rem;font-weight:400;letter-spacing:0.04em;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:0.5rem;}
+.logo-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0;}
+.nav-links{list-style:none;display:flex;align-items:center;gap:2.5rem;}
+.nav-links a{font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink2);text-decoration:none;font-weight:400;transition:color 0.25s;}
+.nav-links a:hover{color:var(--accent);}
+.nav-btn{background:var(--ink)!important;color:var(--bg)!important;padding:10px 24px;font-weight:400!important;transition:background 0.25s!important;}
+.nav-btn:hover{background:var(--accent)!important;}
+.burger{display:none;flex-direction:column;gap:5px;border:none;background:none;cursor:pointer;padding:4px;}
+.burger span{display:block;width:22px;height:1.5px;background:var(--ink);transition:0.3s;}
+.mob-nav{display:none;position:fixed;top:70px;left:0;right:0;bottom:0;background:var(--bg);z-index:199;padding:3rem 6%;flex-direction:column;}
+.mob-nav.open{display:flex;}
+.mob-nav a{font-family:var(--ff-s);font-size:2.4rem;font-weight:300;color:var(--ink);text-decoration:none;padding:1.3rem 0;border-bottom:1px solid var(--border);transition:color 0.25s;}
+.mob-nav a:hover{color:var(--accent);}
+
+/* HERO — Fix 2: watermark repositioned to center-right, not clipped */
+#hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:9rem 6% 6rem;position:relative;overflow:hidden;background:var(--bg);}
+.hero-wm{
+  position:absolute;
+  right:8%;
+  top:50%;
+  transform:translateY(-50%);
+  font-family:var(--ff-s);
+  font-size:clamp(8rem,16vw,22rem);
+  font-weight:300;
+  color:transparent;
+  -webkit-text-stroke:1px rgba(156,109,62,0.13);
+  line-height:1;
+  pointer-events:none;
+  user-select:none;
+  letter-spacing:-0.05em;
+}
+.hero-rule{width:1px;height:80px;background:var(--accent);margin-bottom:2.5rem;animation:ruleIn 1s ease 0.2s both;}
+@keyframes ruleIn{from{height:0;opacity:0;}to{height:80px;opacity:1;}}
+/* Fix 1: hero tag larger */
+.hero-tag{font-size:0.82rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--accent);font-weight:400;margin-bottom:1.8rem;opacity:0;animation:fadeUp 0.8s ease 0.5s both;}
+.hero-h1{font-family:var(--ff-s);font-size:clamp(3.5rem,8vw,8rem);font-weight:300;line-height:1.02;letter-spacing:-0.02em;color:var(--ink);margin-bottom:2.5rem;max-width:860px;opacity:0;animation:fadeUp 0.9s ease 0.7s both;}
+.hero-h1 em{font-style:italic;color:var(--accent);}
+.hero-foot{display:flex;align-items:flex-end;justify-content:space-between;gap:3rem;opacity:0;animation:fadeUp 0.9s ease 1s both;}
+/* Fix 1: hero desc larger + darker */
+.hero-desc{font-size:1rem;line-height:1.9;color:var(--ink3);max-width:400px;font-weight:300;}
+.hero-ctas{display:flex;flex-direction:column;align-items:flex-end;gap:1.2rem;}
+
+/* BUTTONS — Fix 1: button text larger */
+.btn-solid{font-size:0.78rem;letter-spacing:0.16em;text-transform:uppercase;background:var(--ink);color:var(--bg);padding:16px 36px;text-decoration:none;font-weight:400;border:1.5px solid var(--ink);transition:all 0.25s;display:inline-block;}
+.btn-solid:hover{background:var(--accent);border-color:var(--accent);}
+.btn-outline{font-size:0.78rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink);text-decoration:none;border:1.5px solid var(--border2);padding:16px 36px;transition:all 0.25s;display:inline-block;font-weight:400;}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent);}
+.btn-text{font-size:0.78rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink2);text-decoration:none;border-bottom:1px solid var(--border2);padding-bottom:2px;transition:all 0.25s;display:inline-block;font-weight:400;}
+.btn-text:hover{color:var(--accent);border-color:var(--accent);}
+
+hr{border:none;border-top:1px solid var(--border);margin:0 6%;}
+section{padding:8rem 6%;}
+.wrap{max-width:1080px;margin:0 auto;}
+
+/* EYEBROW — Fix 1: larger eyebrow */
+.eyebrow{font-size:0.74rem;letter-spacing:0.26em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-bottom:1.1rem;display:flex;align-items:center;gap:0.9rem;}
+.eyebrow::before{content:'';width:22px;height:1.5px;background:var(--accent);}
+
+/* HEADING */
+.h2{font-family:var(--ff-s);font-size:clamp(2.4rem,4vw,3.8rem);font-weight:300;line-height:1.15;color:var(--ink);}
+.h2 em{font-style:italic;}
+
+/* STATS */
+#stats{background:var(--ink);padding:5rem 6%;}
+.stats-row{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);border:1px solid rgba(255,255,255,0.1);}
+.stat{padding:3rem 2rem;text-align:center;border-right:1px solid rgba(255,255,255,0.1);}
+.stat:last-child{border-right:none;}
+.stat-n{font-family:var(--ff-s);font-size:3.8rem;font-weight:300;color:var(--accent2);line-height:1;margin-bottom:0.7rem;}
+/* Fix 1: stat label larger + brighter */
+.stat-l{font-size:0.76rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(250,250,248,0.7);font-weight:300;}
+
+/* ABOUT */
+#about{background:var(--bg);}
+.about-grid{display:grid;grid-template-columns:1fr 1.6fr;gap:7rem;align-items:center;}
+.about-img-wrap{position:relative;}
+.about-img{aspect-ratio:3/4;background:var(--bg2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.img-ph{text-align:center;}
+.img-ph span{font-size:5rem;display:block;margin-bottom:0.8rem;opacity:0.25;}
+.img-ph p{font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--ink3);}
+.about-chip{position:absolute;bottom:-20px;right:-20px;width:80px;height:80px;background:var(--accent);display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.about-chip .cn{font-family:var(--ff-s);font-size:1.5rem;font-weight:400;color:var(--bg);line-height:1;}
+.about-chip .cl{font-size:0.55rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(250,250,248,0.9);margin-top:3px;}
+.about-text .h2{margin-bottom:1.8rem;}
+/* Fix 1: body text larger + darker */
+.body-p{font-size:1rem;line-height:2.05;color:var(--ink2);font-weight:300;margin-bottom:1.2rem;}
+.about-meta{margin-top:2.5rem;padding-top:2.5rem;border-top:1px solid var(--border);display:grid;grid-template-columns:1fr 1fr;gap:1.8rem;}
+/* Fix 1: meta labels larger */
+.meta-lbl{font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-bottom:0.4rem;}
+.meta-val{font-size:0.95rem;color:var(--ink);font-weight:400;}
+
+/* COURSES */
+#courses{background:var(--bg2);}
+.courses-top{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:4rem;gap:3rem;}
+/* Fix 1: courses note larger */
+.courses-note{font-size:0.92rem;line-height:1.9;color:var(--ink2);max-width:260px;text-align:right;font-weight:300;}
+.course-item{border-top:1px solid var(--border2);padding:2.8rem 0;display:grid;grid-template-columns:44px 1.7fr 1.6fr 100px 80px;gap:3rem;align-items:center;position:relative;transition:background 0.3s;}
+.course-item:last-child{border-bottom:1px solid var(--border2);}
+.course-item::before{content:'';position:absolute;left:-6%;right:-6%;top:0;bottom:0;background:var(--bg3);opacity:0;transition:opacity 0.3s;pointer-events:none;}
+.course-item:hover::before{opacity:1;}
+.course-item>*{position:relative;z-index:1;}
+.c-num{font-family:var(--ff-s);font-size:1rem;font-weight:400;color:var(--accent);}
+/* Fix 1: course name larger */
+.c-name{font-family:var(--ff-s);font-size:1.75rem;font-weight:400;color:var(--ink);margin-bottom:0.4rem;}
+/* Fix 1: course desc larger + darker */
+.c-desc{font-size:0.9rem;color:var(--ink2);font-weight:300;line-height:1.7;}
+.c-tags{display:flex;flex-direction:column;gap:0.55rem;}
+/* Fix 1: tags larger + darker */
+.c-tag{font-size:0.84rem;color:var(--ink2);font-weight:300;display:flex;align-items:center;gap:0.7rem;}
+.c-tag::before{content:'';width:14px;height:1.5px;background:var(--accent2);flex-shrink:0;}
+.c-price{font-family:var(--ff-s);font-size:2.2rem;font-weight:400;color:var(--ink);text-align:right;white-space:nowrap;}
+/* Fix 1: price unit larger */
+.c-price-unit{font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink3);font-weight:400;text-align:right;margin-top:2px;}
+/* Fix 1: expand button larger */
+.c-expand{background:none;border:none;cursor:pointer;font-size:0.76rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--ink3);font-family:var(--ff-b);font-weight:400;transition:color 0.25s;padding:0;white-space:nowrap;text-align:right;}
+.c-expand:hover{color:var(--accent);}
+.c-syllabus{display:none;grid-column:1/-1;padding:2rem 0 0.5rem;border-top:1px solid var(--border);grid-template-columns:repeat(4,1fr);gap:2.5rem;}
+.c-syllabus.open{display:grid;}
+/* Fix 1: syllabus month label larger */
+.syl-mo{font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-bottom:1rem;}
+.syl-col ul{list-style:none;}
+/* Fix 1: syllabus items larger + darker */
+.syl-col li{font-size:0.88rem;color:var(--ink2);font-weight:300;line-height:2;display:flex;gap:0.6rem;}
+.syl-col li::before{content:'—';color:var(--accent2);}
+
+/* BUNDLES */
+#bundles{background:var(--bg);}
+.bundle-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1.5px solid var(--border2);margin-top:3.5rem;}
+.bundle-box{padding:3rem 2.5rem;border-right:1.5px solid var(--border2);transition:background 0.3s;}
+.bundle-box:last-child{border-right:none;}
+.bundle-box:hover{background:var(--bg2);}
+.bundle-box.dark{background:var(--ink);}
+.bundle-box.dark:hover{background:var(--ink2);}
+.b-num{font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--ink3);font-weight:400;margin-bottom:1.5rem;}
+.bundle-box.dark .b-num{color:rgba(250,250,248,0.4);}
+.b-name{font-family:var(--ff-s);font-size:1.4rem;font-weight:400;color:var(--ink);margin-bottom:0.6rem;}
+.bundle-box.dark .b-name{color:var(--bg);}
+.b-inc{font-size:0.8rem;color:var(--ink3);font-weight:300;line-height:1.9;margin-bottom:2.5rem;}
+.bundle-box.dark .b-inc{color:rgba(250,250,248,0.5);}
+.b-price{font-family:var(--ff-s);font-size:2.8rem;font-weight:300;color:var(--ink);line-height:1;margin-bottom:0.3rem;}
+.bundle-box.dark .b-price{color:var(--accent2);}
+.b-save{font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--sage);font-weight:400;margin-bottom:2.5rem;}
+.b-cta{font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink);text-decoration:none;border-bottom:1.5px solid var(--border2);padding-bottom:2px;transition:all 0.25s;font-weight:400;display:inline-block;}
+.bundle-box.dark .b-cta{color:rgba(250,250,248,0.7);border-color:rgba(250,250,248,0.25);}
+.b-cta:hover{color:var(--accent);border-color:var(--accent);}
+
+/* PROCESS */
+#process{background:var(--bg2);}
+.process-steps{display:grid;grid-template-columns:repeat(5,1fr);border:1.5px solid var(--border2);margin-top:3.5rem;}
+.p-step{padding:2.8rem 2rem;border-right:1.5px solid var(--border2);transition:background 0.3s;}
+.p-step:last-child{border-right:none;}
+.p-step:hover{background:var(--bg3);}
+.p-n{font-family:var(--ff-s);font-size:2.2rem;font-weight:300;color:var(--accent2);margin-bottom:1.2rem;line-height:1;}
+/* Fix 1: step title larger */
+.p-title{font-size:0.78rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink);font-weight:600;margin-bottom:0.8rem;}
+/* Fix 1: step desc larger + darker */
+.p-desc{font-size:0.88rem;color:var(--ink2);font-weight:300;line-height:1.9;}
+
+/* SCHEDULE */
+#schedule{background:var(--bg);}
+.sch-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1.5px solid var(--border2);margin-top:3.5rem;}
+.sch-col{border-right:1.5px solid var(--border2);}
+.sch-col:last-child{border-right:none;}
+.sch-head{padding:1.8rem 2rem;border-bottom:1.5px solid var(--border2);background:var(--ink);}
+/* Fix 1: schedule title larger */
+.sch-head-title{font-family:var(--ff-s);font-size:1.25rem;font-weight:400;color:var(--bg);margin-bottom:0.3rem;}
+/* Fix 1: schedule subtitle larger + brighter */
+.sch-head-sub{font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(250,250,248,0.65);font-weight:300;}
+.sch-body{padding:0 2rem;}
+.sch-row{padding:1.4rem 0;border-bottom:1px solid var(--border);display:flex;align-items:baseline;gap:1.2rem;}
+.sch-row:last-child{border-bottom:none;}
+/* Fix 1: day label larger */
+.sch-day-lbl{font-size:0.7rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);font-weight:500;min-width:44px;flex-shrink:0;}
+/* Fix 1: day topic larger + darker */
+.sch-day-topic{font-size:0.92rem;color:var(--ink);font-weight:300;line-height:1.6;}
+.demo-box{margin-top:2.5rem;background:var(--bg2);border:1.5px solid var(--border2);padding:3rem;display:grid;grid-template-columns:1fr 3fr;gap:4rem;align-items:center;}
+.demo-label{font-family:var(--ff-s);font-size:1.75rem;font-weight:300;color:var(--ink);line-height:1.3;}
+.demo-label em{font-style:italic;color:var(--accent);}
+.demo-phases{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;}
+/* Fix 1: demo time larger */
+.demo-t{font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-bottom:0.6rem;}
+/* Fix 1: demo activity larger + darker */
+.demo-a{font-size:0.9rem;color:var(--ink2);font-weight:300;line-height:1.8;}
+
+/* FAQ */
+#faq{background:var(--bg2);}
+.faq-wrap{max-width:700px;margin:3.5rem auto 0;}
+.faq-it{border-top:1px solid var(--border2);}
+.faq-it:last-child{border-bottom:1px solid var(--border2);}
+/* Fix 1: FAQ question larger */
+.faq-btn{width:100%;background:none;border:none;cursor:pointer;text-align:left;padding:1.8rem 0;display:flex;justify-content:space-between;align-items:center;gap:2rem;font-family:var(--ff-b);font-size:1rem;color:var(--ink);font-weight:400;letter-spacing:0.01em;transition:color 0.25s;}
+.faq-btn:hover{color:var(--accent);}
+.faq-ic{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:var(--ink3);flex-shrink:0;transition:all 0.3s;}
+.faq-it.open .faq-ic{background:var(--accent);color:var(--bg);border-color:var(--accent);transform:rotate(45deg);}
+/* Fix 1: FAQ answer larger + darker */
+.faq-ans{display:none;padding-bottom:1.8rem;font-size:0.95rem;color:var(--ink2);font-weight:300;line-height:2.1;max-width:580px;}
+.faq-it.open .faq-ans{display:block;}
+
+/* APPLY / CONTACT */
+#apply{background:var(--ink);}
+.apply-inner{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:7rem;align-items:center;}
+.apply-left .h2{color:var(--bg);margin-bottom:1.8rem;}
+/* Fix 1: apply desc larger + brighter */
+.apply-desc{font-size:1rem;line-height:2;color:rgba(250,250,248,0.75);font-weight:300;margin-bottom:3rem;}
+.apply-list{margin-bottom:3rem;}
+.apply-row{display:flex;justify-content:space-between;align-items:center;padding:1.2rem 0;border-top:1px solid rgba(250,250,248,0.1);}
+.apply-row:last-child{border-bottom:1px solid rgba(250,250,248,0.1);}
+/* Fix 1: apply labels larger + brighter */
+.a-lbl{font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(250,250,248,0.5);font-weight:400;}
+/* Fix 1: apply values larger + brighter */
+.a-val{font-size:0.95rem;color:rgba(250,250,248,0.88);font-weight:300;}
+.apply-eyebrow{font-size:0.74rem;letter-spacing:0.26em;text-transform:uppercase;color:var(--accent2);font-weight:500;margin-bottom:1rem;display:flex;align-items:center;gap:0.9rem;}
+.apply-eyebrow::before{content:'';width:22px;height:1.5px;background:var(--accent2);}
+
+/* Apply CTA box */
+.apply-cta-box{background:rgba(250,250,248,0.05);border:1.5px solid rgba(250,250,248,0.14);padding:3rem;}
+.apply-cta-box h3{font-family:var(--ff-s);font-size:2.2rem;font-weight:300;color:var(--bg);margin-bottom:0.8rem;line-height:1.2;}
+.apply-cta-box h3 em{font-style:italic;color:var(--accent2);}
+/* Fix 1: CTA box body larger + brighter */
+.apply-cta-box p{font-size:0.95rem;color:rgba(250,250,248,0.65);font-weight:300;line-height:2;margin-bottom:2.5rem;}
+.apply-features{margin-bottom:2.5rem;display:flex;flex-direction:column;gap:0.9rem;}
+/* Fix 1: features larger + brighter */
+.apply-feature{display:flex;align-items:center;gap:1rem;font-size:0.92rem;color:rgba(250,250,248,0.75);font-weight:300;}
+.apply-feature::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent2);flex-shrink:0;}
+.btn-apply{font-size:0.78rem;letter-spacing:0.18em;text-transform:uppercase;background:var(--accent2);color:var(--ink);padding:17px 38px;text-decoration:none;font-weight:500;border:1.5px solid var(--accent2);transition:all 0.25s;display:inline-block;}
+.btn-apply:hover{background:var(--accent);border-color:var(--accent);color:var(--bg);}
+/* Fix 1: apply note larger + brighter */
+.apply-note{font-size:0.8rem;color:rgba(250,250,248,0.45);font-weight:300;margin-top:1.2rem;line-height:1.8;}
+.free-tag{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(74,122,90,0.2);border:1px solid rgba(74,122,90,0.4);color:#7EC99A;padding:6px 14px;border-radius:2px;font-size:0.74rem;letter-spacing:0.14em;text-transform:uppercase;font-weight:400;margin-bottom:1.8rem;}
+
+/* FOOTER */
+footer{padding:3rem 6%;background:#0F0E09;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,0.05);}
+/* Fix 1: footer text larger + brighter */
+.footer-logo{font-family:var(--ff-s);font-size:1.2rem;font-weight:300;color:rgba(250,250,248,0.65);letter-spacing:0.04em;display:flex;align-items:center;gap:0.5rem;}
+.footer-logo .dot{background:var(--accent);}
+.footer-mid{font-family:var(--ff-s);font-style:italic;font-size:0.95rem;color:rgba(250,250,248,0.3);}
+.footer-links{list-style:none;display:flex;gap:2rem;}
+.footer-links a{font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(250,250,248,0.38);text-decoration:none;font-weight:300;transition:color 0.25s;}
+.footer-links a:hover{color:var(--accent2);}
+
+/* REVEAL */
+@keyframes fadeUp{from{opacity:0;transform:translateY(26px);}to{opacity:1;transform:translateY(0);}}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.85s cubic-bezier(0.16,1,0.3,1),transform 0.85s cubic-bezier(0.16,1,0.3,1);}
+.reveal.vis{opacity:1;transform:translateY(0);}
+.d1{transition-delay:0.12s;}.d2{transition-delay:0.22s;}.d3{transition-delay:0.32s;}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  .nav-links{display:none;}.burger{display:flex;}
+  .hero-h1{font-size:clamp(2.8rem,10vw,5rem);}.hero-wm{display:none;}
+  .hero-foot{flex-direction:column;align-items:flex-start;}
+  .hero-ctas{align-items:flex-start;flex-direction:row;}
+  .stats-row{grid-template-columns:1fr 1fr;}
+  .stat{border-bottom:1px solid rgba(255,255,255,0.1);}
+  .stat:nth-child(2){border-right:none;}
+  .stat:nth-child(3),.stat:nth-child(4){border-bottom:none;}
+  .about-grid{grid-template-columns:1fr;gap:4rem;}
+  .about-img-wrap{max-width:280px;}
+  .course-item{grid-template-columns:1fr;gap:1.2rem;}
+  .c-price,.c-price-unit{text-align:left;}
+  .c-syllabus.open{grid-template-columns:1fr 1fr;}
+  .process-steps{grid-template-columns:1fr 1fr;}
+  .p-step:nth-child(2){border-right:none;}
+  .p-step{border-bottom:1.5px solid var(--border2);}
+  .sch-grid{grid-template-columns:1fr;}
+  .sch-col{border-right:none;border-bottom:1.5px solid var(--border2);}
+  .sch-col:last-child{border-bottom:none;}
+  .demo-box{grid-template-columns:1fr;gap:2rem;}
+  .demo-phases{grid-template-columns:1fr 1fr;}
+  .apply-inner{grid-template-columns:1fr;gap:4rem;}
+  footer{flex-direction:column;align-items:flex-start;gap:1.2rem;}
+}
+@media(max-width:520px){
+  section{padding:5rem 5%;}
+  .process-steps{grid-template-columns:1fr;}
+  .demo-phases{grid-template-columns:1fr;}
+  .c-syllabus.open{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#hero" class="logo"><span class="logo-dot"></span>As Arabic Academy</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#courses">Courses</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#schedule">Schedule</a></li>
+    <li><a href="#certificate-preview">Certificate</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#apply" class="nav-btn">Apply Now</a></li>
+  </ul>
+  <button class="burger" onclick="toggleNav()" aria-label="Menu">
+    <span></span><span></span>
+  </button>
+</nav>
+
+<div class="mob-nav" id="mobNav">
+  <a href="#about"    onclick="toggleNav()">About</a>
+  <a href="#courses"  onclick="toggleNav()">Courses</a>
+  <a href="#process"  onclick="toggleNav()">Process</a>
+  <a href="#schedule" onclick="toggleNav()">Schedule</a>
+  <a href="#certificate-preview" onclick="toggleNav()">Certificate</a>
+  <a href="#faq"      onclick="toggleNav()">FAQ</a>
+  <a href="#apply"    onclick="toggleNav()">Apply Now</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-wm">ع</div>
+  <div style="max-width:1080px;margin:0 auto;width:100%;">
+    <div class="hero-rule"></div>
+    <p class="hero-tag">Personal · Online · 1-on-1 Classes</p>
+    <h1 class="hero-h1">Learn <em>Arabic</em><br>& Typing —<br>from home</h1>
+    <div class="hero-foot">
+      <p class="hero-desc">A personal academy offering Arabic language and typing courses — structured with care, paced entirely around you, starting whenever you are ready.</p>
+      <div class="hero-ctas">
+        <a href="#apply" class="btn-solid">Apply Now — Free Demo</a>
+        <a href="#courses" class="btn-text">Explore courses →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr>
+
+<!-- STATS -->
+<section id="stats">
+  <div class="stats-row reveal">
+    <div class="stat"><div class="stat-n">3</div><div class="stat-l">Courses Offered</div></div>
+    <div class="stat"><div class="stat-n">48</div><div class="stat-l">Classes · Arabic Course</div></div>
+    <div class="stat"><div class="stat-n">1:1</div><div class="stat-l">Personal Attention</div></div>
+    <div class="stat"><div class="stat-n">Free</div><div class="stat-l">First Demo Class</div></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-img-wrap reveal">
+        <div class="about-img">
+  <img src="img2.jpg"    
+       style="width:100%; height:100%; object-fit:cover;">
+</div>
+        <div class="about-chip"><span class="cn">MA</span><span class="cl">Arabic</span></div>
+      </div>
+      <div class="about-text reveal d1">
+        <div class="eyebrow">About the Academy</div>
+        <h2 class="h2">Teaching Arabic<br>with <em>intention</em></h2>
+        <br>
+        <p class="body-p">I am Ashraf Ali — currently pursuing my Master's in Arabic Language and the founder of As Arabic Academy. I believe learning Arabic should feel personal, unhurried, and genuinely encouraging.</p>
+        <p class="body-p">Every class is a private 1-on-1 session built around your pace, your goals, and your schedule. From your very first Arabic letter to full sentences — I am with you each step of the way.</p>
+        <p class="body-p" style="font-style:italic;color:var(--accent);font-family:var(--ff-s);font-size:1.05rem;">"Arabic is not just a language — it is a gateway to the Quran, to history, and to a living culture."</p>
+        <div class="about-meta">
+          <div><div class="meta-lbl">Qualification</div><div class="meta-val">MA Arabic — 2nd Year</div></div>
+          <div><div class="meta-lbl">Class Format</div><div class="meta-val">1-on-1 Personal Online</div></div>
+          <div><div class="meta-lbl">Platform</div><div class="meta-val">Google Meet</div></div>
+          <div><div class="meta-lbl">Mode</div><div class="meta-val">100% Online · Pan India</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COURSES -->
+<section id="courses">
+  <div class="wrap">
+    <div class="courses-top reveal">
+      <div>
+        <div class="eyebrow">Courses</div>
+        <h2 class="h2">Three courses,<br><em>one teacher</em></h2>
+      </div>
+      <p class="courses-note">Each course is taught personally by Ashraf Ali — structured, paced, and scheduled entirely around you.</p>
+    </div>
+
+    <div class="course-item reveal">
+      <div class="c-num">01</div>
+      <div><div class="c-name">Arabic Language</div><div class="c-desc">Beginner to Pre-intermediate — alphabet, grammar, vocabulary, and conversation.</div></div>
+      <div class="c-tags">
+        <span class="c-tag">4 months · 48 classes</span>
+        <span class="c-tag">3 sessions per week · 45 min</span>
+        <span class="c-tag">Certificate on completion</span>
+      </div>
+      <div><div class="c-price">₹499</div><div class="c-price-unit">per month</div></div>
+      <button class="c-expand" onclick="expandSyl(this)">Syllabus ↓</button>
+      <div class="c-syllabus">
+        <div class="syl-col"><div class="syl-mo">Month 1 — Strong Foundation</div><ul><li>Arabic Basics</li><li>Harakat (Vowels) </li><li>Basic Vocabulary + Reading</li><li>Sentence Basics</li></ul></div>
+        <div class="syl-col"><div class="syl-mo">Month 2 — Sentence Building</div><ul><li>Pronouns</li><li>Verb Basics (Present)</li><li>Questions</li><li>Prepositions</li></ul></div>
+        <div class="syl-col"><div class="syl-mo">Month 3 — Grammar + Conversation</div><ul><li>Past Tense</li><li>Adjectives</li><li>Possession</li><li>Daily Conversation</li></ul></div>
+        <div class="syl-col"><div class="syl-mo">Month 4 — Intermediate level</div><ul><li>Past &amp; future tense</li><li>Sentence Expansion</li><li>Reading Practice</li><li>Reading &amp; translation</li></ul></div>
+      </div>
+    </div>
+
+    <div class="course-item reveal d1">
+      <div class="c-num">02</div>
+      <div><div class="c-name">Arabic Typing</div><div class="c-desc">Master the Arabic keyboard — layout to 25–30 words per minute, including Harakat.</div></div>
+      <div class="c-tags">
+        <span class="c-tag">2 months · 24 classes</span>
+        <span class="c-tag">3 sessions per week · 45 min</span>
+        <span class="c-tag">Certificate on completion</span>
+      </div>
+      <div><div class="c-price">₹299</div><div class="c-price-unit">per month</div></div>
+      <button class="c-expand" onclick="expandSyl(this)">Syllabus ↓</button>
+      <div class="c-syllabus">
+        <div class="syl-col"><div class="syl-mo">Month 1 — Foundation</div><ul><li>Arabic keyboard layout</li><li>All keys &amp; home row</li><li>Typing with Harakat</li><li>Simple Arabic words</li></ul></div>
+        <div class="syl-col"><div class="syl-mo">Month 2 — Advanced</div><ul><li>Sentences &amp; paragraphs</li><li>Typing in Word &amp; WhatsApp</li><li>Speed building 25–30 wpm</li><li>Real-world typing tasks</li></ul></div>
+      </div>
+    </div>  
+
+    <div class="course-item reveal d2">
+      <div class="c-num">03</div>
+      <div><div class="c-name">English Typing</div><div class="c-desc">Correct finger placement, professional accuracy, and 30–35 words per minute.</div></div>
+      <div class="c-tags">
+        <span class="c-tag">2 months · 24 classes</span>
+        <span class="c-tag">3 sessions per week · 45 min</span>
+        <span class="c-tag">Certificate on completion</span>
+      </div>
+      <div><div class="c-price">₹299</div><div class="c-price-unit">per month</div></div>
+      <button class="c-expand" onclick="expandSyl(this)">Syllabus ↓</button>
+      <div class="c-syllabus">
+        <div class="syl-col"><div class="syl-mo">Month 1 — Foundation</div><ul><li>Keyboard &amp; finger placement</li><li>Home, upper &amp; lower rows</li><li>Numbers &amp; symbols</li><li>Basic word typing</li></ul></div>
+        <div class="syl-col"><div class="syl-mo">Month 2 — Advanced</div><ul><li>Sentences &amp; paragraphs</li><li>Professional email typing</li><li>Speed building 30–35 wpm</li><li>Real-world typing tasks</li></ul></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow">How It Works</div>
+      <h2 class="h2">Five steps to<br><em>fluency</em></h2>
+    </div>
+    <div class="process-steps reveal d1">
+      <div class="p-step"><div class="p-n">01</div><div class="p-title">Register</div><div class="p-desc">Fill the Google Form. Takes under two minutes.</div></div>
+      <div class="p-step"><div class="p-n">02</div><div class="p-title">Free Demo</div><div class="p-desc">A full 45-minute class — completely free, no commitment.</div></div>
+      <div class="p-step"><div class="p-n">03</div><div class="p-title">Schedule</div><div class="p-desc">Pick the days and times that fit your routine.</div></div>
+      <div class="p-step"><div class="p-n">04</div><div class="p-title">Learn</div><div class="p-desc">Three personal sessions every week — teach, practice, revise.</div></div>
+      <div class="p-step"><div class="p-n">05</div><div class="p-title">Certificate</div><div class="p-desc">Complete your course and receive a certificate.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SCHEDULE -->
+<section id="schedule">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow">Weekly Rhythm</div>
+      <h2 class="h2">A <em>structured</em><br>weekly pattern</h2>
+    </div>
+    <div class="sch-grid reveal d1">
+      <div class="sch-col">
+        <div class="sch-head"><div class="sch-head-title">Arabic Language</div><div class="sch-head-sub">3 days · 45 min each</div></div>
+        <div class="sch-body">
+          <div class="sch-row"><span class="sch-day-lbl">Day 1</span><span class="sch-day-topic">New topic — teach &amp; explain</span></div>
+          <div class="sch-row"><span class="sch-day-lbl">Day 2</span><span class="sch-day-topic">Practice &amp; written exercise</span></div>
+          <div class="sch-row"><span class="sch-day-lbl">Day 3</span><span class="sch-day-topic">Revision + small test</span></div>
+        </div>
+      </div>
+      <div class="sch-col">
+        <div class="sch-head"><div class="sch-head-title">Arabic Typing</div><div class="sch-head-sub">3 days · 45 min each</div></div>
+        <div class="sch-body">
+          <div class="sch-row"><span class="sch-day-lbl">Day 1</span><span class="sch-day-topic">New keys — teach &amp; practice</span></div>
+          <div class="sch-row"><span class="sch-day-lbl">Day 2</span><span class="sch-day-topic">Typing practice session</span></div>
+          <div class="sch-row"><span class="sch-day-lbl">Day 3</span><span class="sch-day-topic">Speed test + revision</span></div>
+        </div>
+      </div>
+      <div class="sch-col">
+        <div class="sch-head"><div class="sch-head-title">English Typing</div><div class="sch-head-sub">3 days · 45 min each</div></div>
+        <div class="sch-body">
+          <div class="sch-row"><span class="sch-day-lbl">Day 1</span><span class="sch-day-topic">New keys — teach &amp; practice</span></div>
+          <div class="sch-row"><span class="sch-day-lbl">Day 2</span><span class="sch-day-topic">Typing practice session</span></div>
+          <div class="sch-row"><span class="sch-day-lbl">Day 3</span><span class="sch-day-topic">Speed test + revision</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="demo-box reveal d2">
+      <div class="demo-label">Free <em>Demo</em><br>Class — 45 min</div>
+      <div class="demo-phases">
+        <div><div class="demo-t">0 – 5 min</div><div class="demo-a">Warm introduction &amp; getting to know you</div></div>
+        <div><div class="demo-t">5 – 15 min</div><div class="demo-a">Understanding your goals &amp; current level</div></div>
+        <div><div class="demo-t">15 – 35 min</div><div class="demo-a">First lesson — a real class experience</div></div>
+        <div><div class="demo-t">35 – 45 min</div><div class="demo-a">Course overview, Q&amp;A &amp; next steps</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATE PREVIEW (Image placeholder) -->
+<section id="certificate-preview">
+  <div class="wrap" style="max-width:1080px;">
+    <div class="reveal">
+      <div class="eyebrow">Course Certificate</div>
+      <h2 class="h2">A certificate you'll<br><em>be proud of</em></h2>
+      <br>
+      <p class="body-p" style="max-width:600px;">Every student who completes a course at As Arabic Academy receives a personalised certificate of completion — a lasting record of your dedication and achievement.</p>
+    </div>
+    <div class="reveal d1" style="margin-top:3rem;">
+      <!-- Certificate Image Placeholder -->
+      <img src="certificate.jpg" alt="Sample Certificate" style="width:100%; max-width:700px; display:block; margin:0 auto;">
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="wrap" style="max-width:1080px;">
+    <div class="reveal">
+      <div class="eyebrow">Questions</div>
+      <h2 class="h2">Things people<br><em>often ask</em></h2>
+    </div>
+    <div class="faq-wrap reveal d1">
+      <div class="faq-it">
+        <button class="faq-btn" onclick="doFaq(this)">Do I need any prior knowledge of Arabic? <span class="faq-ic">+</span></button>
+        <div class="faq-ans">Not at all. This course is built from the very first Arabic letter for complete beginners. All you need is willingness to learn.</div>
+      </div>
+      <div class="faq-it">
+        <button class="faq-btn" onclick="doFaq(this)">When does my class start? <span class="faq-ic">+</span></button>
+        <div class="faq-ans">After registering, Ashraf Ali will contact you on WhatsApp within 24 hours to schedule your class at a time fully convenient for you. There is no fixed batch start date.</div>
+      </div>
+      <div class="faq-it">
+        <button class="faq-btn" onclick="doFaq(this)">Do I pay before the demo class? <span class="faq-ic">+</span></button>
+        <div class="faq-ans">No. Your first demo class is entirely free. You pay only after you attend and decide to continue — no pressure, no obligation whatsoever.</div>
+      </div>
+      <div class="faq-it">
+        <button class="faq-btn" onclick="doFaq(this)">What device do I need? <span class="faq-ic">+</span></button>
+        <div class="faq-ans">A smartphone or laptop with a stable internet connection and Google Meet installed. That is all you need to join.</div>
+      </div>
+      <div class="faq-it">
+        <button class="faq-btn" onclick="doFaq(this)">Can I pay month by month? <span class="faq-ic">+</span></button>
+        <div class="faq-ans">Yes — always. You pay ₹499/month for Arabic Language or ₹299/month for typing courses. Payments are made monthly in advance prior to the start of classes. No full-course fee is required upfront.</div>
+      </div>
+      <div class="faq-it">
+        <button class="faq-btn" onclick="doFaq(this)">Will I receive a certificate? <span class="faq-ic">+</span></button>
+        <div class="faq-ans">Yes. Every student who completes the full course receives a certificate of completion from As Arabic Academy.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APPLY -->
+<section id="apply">
+  <div class="apply-inner">
+    <div class="apply-left reveal">
+      <div class="apply-eyebrow">Enrol Today</div>
+      <h2 class="h2" style="color:var(--bg);">Begin your<br><em style="color:var(--accent2);">journey</em> today</h2>
+      <br>
+      <p class="apply-desc">Register your interest via our Google Form. Ashraf Ali will reach out personally on WhatsApp within 24 hours to schedule your free demo class.</p>
+      <div class="apply-list">
+        <div class="apply-row"><span class="a-lbl">Teacher</span><span class="a-val">Ashraf Ali</span></div>
+        <div class="apply-row"><span class="a-lbl">Email</span><span class="a-val">asarabicacademy@gmail.com</span></div>
+        <div class="apply-row"><span class="a-lbl">Platform</span><span class="a-val">Google Meet — Online</span></div>
+        <div class="apply-row"><span class="a-lbl">Response</span><span class="a-val">Within 24 hours on WhatsApp</span></div>
+        <div class="apply-row"><span class="a-lbl">First Class</span><span class="a-val">Always free</span></div>
+      </div>
+    </div>
+
+    <div class="apply-cta-box reveal d1">
+      <div class="free-tag">🎁 First class is free</div>
+      <h3>Register via<br><em>Google Form</em></h3>
+      <p>Fill in your details, choose your course, and pick a preferred time. Ashraf Ali will personally confirm your slot within 24 hours.</p>
+      <div class="apply-features">
+        <div class="apply-feature">Takes less than 2 minutes to fill</div>
+        <div class="apply-feature">No payment required to register</div>
+        <div class="apply-feature">Personal WhatsApp confirmation</div>
+        <div class="apply-feature">Flexible scheduling — your time, your pace</div>
+      </div>
+      <a href="https://forms.gle/LrxEFWnXkpmmhwnb7" target="_blank" class="btn-apply">Open Registration Form →</a>
+      <p class="apply-note">After submitting the form, Ashraf Ali will contact you on WhatsApp within 24 hours to schedule your FREE demo class. No payment is required at this stage.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo"><span class="logo-dot dot"></span>As Arabic Academy</div>
+  <div class="footer-mid">"Making Arabic easy for everyone"</div>
+  <ul class="footer-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#courses">Courses</a></li>
+    <li><a href="#apply">Apply</a></li>
+  </ul>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('scrolled',window.scrollY>20);
+});
+function toggleNav(){
+  document.getElementById('mobNav').classList.toggle('open');
+}
+function expandSyl(btn){
+  const item=btn.closest('.course-item');
+  const syl=item.querySelector('.c-syllabus');
+  const open=syl.classList.toggle('open');
+  btn.textContent=open?'Syllabus ↑':'Syllabus ↓';
+}
+function doFaq(btn){
+  const it=btn.parentElement;
+  document.querySelectorAll('.faq-it').forEach(x=>{if(x!==it)x.classList.remove('open');});
+  it.classList.toggle('open');
+}
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis');});
+},{threshold:0.07});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
