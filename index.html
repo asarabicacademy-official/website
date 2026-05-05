@@ -1,609 +1,1829 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>As Arabic Academy — Learn Arabic & Typing Online</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Outfit:wght@200;300;400;500;600&family=Cinzel:wght@400;500;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #FEFCF9;
-      --bg2: #F6F2EA;
-      --bg3: #EBE4D5;
-      --ink: #1C1812;
-      --ink2: #2E2920;
-      --ink3: #5C5545;
-      --accent: #C8852E;
-      --accent2: #D9A34A;
-      --accent-glow: rgba(200, 133, 46, 0.2);
-      --sage: #3D7A5C;
-      --border: rgba(28, 24, 18, 0.09);
-      --border2: rgba(28, 24, 18, 0.16);
-      --shadow-sm: 0 1px 3px rgba(28, 24, 18, 0.05);
-      --shadow-md: 0 4px 20px rgba(28, 24, 18, 0.07);
-      --shadow-lg: 0 12px 40px rgba(28, 24, 18, 0.10);
-      --shadow-btn: 0 3px 14px rgba(200, 133, 46, 0.22);
-      --ff-s: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
-      --ff-b: 'Outfit', 'Segoe UI', system-ui, sans-serif;
-      --radius-sm: 8px;
-      --radius-md: 14px;
-      --radius-lg: 20px;
-      --radius-pill: 999px;
-      --transition-smooth: 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
-      --transition-bounce: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-      --transition-fast: 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
-    }
-    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
-    html{scroll-behavior:smooth;font-size:17px;}
-    body{font-family:var(--ff-b);font-weight:300;background:var(--bg);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased;line-height:1.7;letter-spacing:0.005em;}
-    ::-webkit-scrollbar{width:4px;}
-    ::-webkit-scrollbar-track{background:var(--bg);}
-    ::-webkit-scrollbar-thumb{background:var(--border2);border-radius:999px;}
-    ::-webkit-scrollbar-thumb:hover{background:var(--accent);}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AS Arabic Academy — Learn Arabic & Typing Online</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Outfit:wght@200;300;400;500;600&family=Cinzel:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #FEFCF9;
+            --bg2: #F6F2EA;
+            --bg3: #EBE4D5;
+            --ink: #1C1812;
+            --ink2: #2E2920;
+            --ink3: #5C5545;
+            --accent: #C8852E;
+            --accent2: #D9A34A;
+            --accent-glow: rgba(200, 133, 46, 0.2);
+            --sage: #3D7A5C;
+            --border: rgba(28, 24, 18, 0.09);
+            --border2: rgba(28, 24, 18, 0.16);
+            --shadow-sm: 0 1px 3px rgba(28, 24, 18, 0.05);
+            --shadow-md: 0 4px 20px rgba(28, 24, 18, 0.07);
+            --shadow-lg: 0 12px 40px rgba(28, 24, 18, 0.10);
+            --shadow-btn: 0 3px 14px rgba(200, 133, 46, 0.22);
+            --ff-s: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+            --ff-b: 'Outfit', 'Segoe UI', system-ui, sans-serif;
+            --radius-sm: 8px;
+            --radius-md: 14px;
+            --radius-lg: 20px;
+            --radius-pill: 999px;
+            --transition-smooth: 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
+            --transition-bounce: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            --transition-fast: 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+        }
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+            font-size: 17px;
+        }
+        body {
+            font-family: var(--ff-b);
+            font-weight: 300;
+            background: var(--bg);
+            color: var(--ink);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            line-height: 1.7;
+            letter-spacing: 0.005em;
+        }
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--border2);
+            border-radius: 999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent);
+        }
 
-    /* NAV */
-    nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;display:flex;align-items:center;justify-content:space-between;padding:0 6%;background:rgba(254,252,249,0.92);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);transition:box-shadow .3s,background .3s;}
-    nav.scrolled{box-shadow:0 2px 28px rgba(28,24,18,0.10);background:rgba(254,252,249,0.97);}
-    .logo{font-family:var(--ff-s);font-size:1.3rem;font-weight:500;letter-spacing:.03em;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:.55rem;transition:color var(--transition-fast);}
-    .logo:hover{color:var(--accent);}
-    .logo-dot{width:7px;height:7px;border-radius:50%;background:var(--accent);flex-shrink:0;transition:transform var(--transition-bounce),box-shadow var(--transition-fast);}
-    .logo:hover .logo-dot{transform:scale(1.5);box-shadow:0 0 14px var(--accent-glow);}
-    .nav-links{list-style:none;display:flex;align-items:center;gap:2.2rem;}
-    .nav-links a{font-size:.76rem;letter-spacing:.13em;text-transform:uppercase;color:var(--ink2);text-decoration:none;font-weight:400;position:relative;padding:6px 0;transition:color var(--transition-fast);white-space:nowrap;}
-    .nav-links a::after{content:'';position:absolute;bottom:-2px;left:0;width:100%;height:2px;background:var(--accent);border-radius:999px;transform:scaleX(0);transform-origin:right center;transition:transform .35s cubic-bezier(0.22,0.61,0.36,1);}
-    .nav-links a:hover{color:var(--accent);}
-    .nav-links a:hover::after{transform:scaleX(1);transform-origin:left center;}
-    .nav-btn{background:var(--ink)!important;color:var(--bg)!important;padding:10px 22px!important;border-radius:var(--radius-pill)!important;font-weight:500!important;letter-spacing:.11em!important;transition:all var(--transition-smooth)!important;box-shadow:var(--shadow-sm);}
-    .nav-btn:hover{background:var(--accent)!important;box-shadow:var(--shadow-btn);transform:translateY(-1px);}
-    .nav-btn::after{display:none!important;}
-    .burger{display:none;flex-direction:column;gap:5px;border:none;background:none;cursor:pointer;padding:8px;border-radius:var(--radius-sm);transition:background var(--transition-fast);}
-    .burger:hover{background:var(--bg2);}
-    .burger span{display:block;width:24px;height:2px;background:var(--ink);border-radius:999px;transition:0.3s cubic-bezier(0.34,1.56,0.64,1);}
-    .burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
-    .burger.open span:nth-child(2){opacity:0;transform:scaleX(0);}
-    .burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
-    .mob-nav{display:none;position:fixed;top:70px;left:0;right:0;bottom:0;background:rgba(254,252,249,0.98);backdrop-filter:blur(20px);z-index:199;padding:2rem 6%;flex-direction:column;overflow-y:auto;}
-    .mob-nav.open{display:flex;}
-    .mob-nav a{font-family:var(--ff-s);font-size:2rem;font-weight:400;color:var(--ink);text-decoration:none;padding:1.2rem 0;border-bottom:1px solid var(--border);transition:color var(--transition-fast),padding-left var(--transition-smooth);position:relative;}
-    .mob-nav a:hover{color:var(--accent);padding-left:0.6rem;}
-    .mob-nav a::before{content:'';position:absolute;left:0;bottom:-1px;width:0;height:2px;background:var(--accent);border-radius:999px;transition:width var(--transition-smooth);}
-    .mob-nav a:hover::before{width:100%;}
+        /* NAV */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 200;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 6%;
+            background: rgba(254, 252, 249, 0.92);
+            backdrop-filter: blur(24px);
+            border-bottom: 1px solid var(--border);
+            transition: box-shadow .3s, background .3s;
+        }
+        nav.scrolled {
+            box-shadow: 0 2px 28px rgba(28, 24, 18, 0.10);
+            background: rgba(254, 252, 249, 0.97);
+        }
+        .logo {
+            font-family: var(--ff-s);
+            font-size: 1.3rem;
+            font-weight: 500;
+            letter-spacing: .03em;
+            color: var(--ink);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: .55rem;
+            transition: color var(--transition-fast);
+        }
+        .logo:hover {
+            color: var(--accent);
+        }
+        .logo-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--accent);
+            flex-shrink: 0;
+            transition: transform var(--transition-bounce), box-shadow var(--transition-fast);
+        }
+        .logo:hover .logo-dot {
+            transform: scale(1.5);
+            box-shadow: 0 0 14px var(--accent-glow);
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 2.2rem;
+        }
+        .nav-links a {
+            font-size: .76rem;
+            letter-spacing: .13em;
+            text-transform: uppercase;
+            color: var(--ink2);
+            text-decoration: none;
+            font-weight: 400;
+            position: relative;
+            padding: 6px 0;
+            transition: color var(--transition-fast);
+            white-space: nowrap;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--accent);
+            border-radius: 999px;
+            transform: scaleX(0);
+            transform-origin: right center;
+            transition: transform .35s cubic-bezier(0.22, 0.61, 0.36, 1);
+        }
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        .nav-links a:hover::after {
+            transform: scaleX(1);
+            transform-origin: left center;
+        }
+        .nav-btn {
+            background: var(--ink) !important;
+            color: var(--bg) !important;
+            padding: 10px 22px !important;
+            border-radius: var(--radius-pill) !important;
+            font-weight: 500 !important;
+            letter-spacing: .11em !important;
+            transition: all var(--transition-smooth) !important;
+            box-shadow: var(--shadow-sm);
+        }
+        .nav-btn:hover {
+            background: var(--accent) !important;
+            box-shadow: var(--shadow-btn);
+            transform: translateY(-1px);
+        }
+        .nav-btn::after {
+            display: none !important;
+        }
+        .burger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            border: none;
+            background: none;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: var(--radius-sm);
+            transition: background var(--transition-fast);
+        }
+        .burger:hover {
+            background: var(--bg2);
+        }
+        .burger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--ink);
+            border-radius: 999px;
+            transition: 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .burger.open span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+        .burger.open span:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+        .burger.open span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+        .mob-nav {
+            display: none;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(254, 252, 249, 0.98);
+            backdrop-filter: blur(20px);
+            z-index: 199;
+            padding: 2rem 6%;
+            flex-direction: column;
+            overflow-y: auto;
+        }
+        .mob-nav.open {
+            display: flex;
+        }
+        .mob-nav a {
+            font-family: var(--ff-s);
+            font-size: 2rem;
+            font-weight: 400;
+            color: var(--ink);
+            text-decoration: none;
+            padding: 1.2rem 0;
+            border-bottom: 1px solid var(--border);
+            transition: color var(--transition-fast), padding-left var(--transition-smooth);
+            position: relative;
+        }
+        .mob-nav a:hover {
+            color: var(--accent);
+            padding-left: 0.6rem;
+        }
+        .mob-nav a::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -1px;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            border-radius: 999px;
+            transition: width var(--transition-smooth);
+        }
+        .mob-nav a:hover::before {
+            width: 100%;
+        }
 
-    /* HERO */
-    #hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:9rem 6% 6rem;position:relative;overflow:hidden;background:radial-gradient(ellipse at 75% 40%,rgba(217,163,74,0.06) 0%,transparent 60%),radial-gradient(ellipse at 20% 80%,rgba(200,133,46,0.04) 0%,transparent 50%),var(--bg);}
-    .hero-wm{position:absolute;right:6%;top:50%;transform:translateY(-50%);font-family:var(--ff-s);font-size:clamp(8rem,18vw,24rem);font-weight:300;color:transparent;-webkit-text-stroke:1.5px rgba(200,133,46,0.10);line-height:1;pointer-events:none;user-select:none;letter-spacing:-0.06em;animation:watermarkBreath 8s ease-in-out infinite;}
-    @keyframes watermarkBreath{0%,100%{-webkit-text-stroke-color:rgba(200,133,46,0.10);}50%{-webkit-text-stroke-color:rgba(200,133,46,0.18);}}
-    .hero-rule{width:1px;height:80px;background:linear-gradient(to bottom,var(--accent),transparent);margin-bottom:2.5rem;animation:ruleIn 1s ease .2s both;border-radius:999px;}
-    @keyframes ruleIn{from{height:0;opacity:0;}to{height:80px;opacity:1;}}
-    .hero-tag{font-size:.82rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-bottom:1.8rem;opacity:0;animation:fadeUp .8s ease .5s both;}
-    .hero-h1{font-family:var(--ff-s);font-size:clamp(3.5rem,8vw,8rem);font-weight:300;line-height:1.02;letter-spacing:-0.02em;color:var(--ink);margin-bottom:2.5rem;max-width:860px;opacity:0;animation:fadeUp .9s ease .7s both;}
-    .hero-h1 em{font-style:italic;color:var(--accent);position:relative;}
-    .hero-h1 em::after{content:'';position:absolute;bottom:4px;left:0;width:100%;height:3px;background:var(--accent);opacity:0.25;border-radius:999px;}
-    .hero-foot{display:flex;align-items:flex-end;justify-content:space-between;gap:3rem;opacity:0;animation:fadeUp .9s ease 1s both;}
-    .hero-desc{font-size:1rem;line-height:1.9;color:var(--ink3);max-width:420px;font-weight:300;}
-    .hero-ctas{display:flex;flex-direction:column;align-items:flex-end;gap:1.2rem;}
+        /* HERO */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 9rem 6% 6rem;
+            position: relative;
+            overflow: hidden;
+            background: radial-gradient(ellipse at 75% 40%, rgba(217, 163, 74, 0.06) 0%, transparent 60%), radial-gradient(ellipse at 20% 80%, rgba(200, 133, 46, 0.04) 0%, transparent 50%), var(--bg);
+        }
+        .hero-wm {
+            position: absolute;
+            right: 6%;
+            top: 50%;
+            transform: translateY(-50%);
+            font-family: var(--ff-s);
+            font-size: clamp(8rem, 18vw, 24rem);
+            font-weight: 300;
+            color: transparent;
+            -webkit-text-stroke: 1.5px rgba(200, 133, 46, 0.10);
+            line-height: 1;
+            pointer-events: none;
+            user-select: none;
+            letter-spacing: -0.06em;
+            animation: watermarkBreath 8s ease-in-out infinite;
+        }
+        @keyframes watermarkBreath {
+            0%,
+            100% {
+                -webkit-text-stroke-color: rgba(200, 133, 46, 0.10);
+            }
+            50% {
+                -webkit-text-stroke-color: rgba(200, 133, 46, 0.18);
+            }
+        }
+        .hero-rule {
+            width: 1px;
+            height: 80px;
+            background: linear-gradient(to bottom, var(--accent), transparent);
+            margin-bottom: 2.5rem;
+            animation: ruleIn 1s ease .2s both;
+            border-radius: 999px;
+        }
+        @keyframes ruleIn {
+            from {
+                height: 0;
+                opacity: 0;
+            }
+            to {
+                height: 80px;
+                opacity: 1;
+            }
+        }
+        .hero-tag {
+            font-size: .82rem;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 1.8rem;
+            opacity: 0;
+            animation: fadeUp .8s ease .5s both;
+        }
+        .hero-h1 {
+            font-family: var(--ff-s);
+            font-size: clamp(3.5rem, 8vw, 8rem);
+            font-weight: 300;
+            line-height: 1.02;
+            letter-spacing: -0.02em;
+            color: var(--ink);
+            margin-bottom: 2.5rem;
+            max-width: 860px;
+            opacity: 0;
+            animation: fadeUp .9s ease .7s both;
+        }
+        .hero-h1 em {
+            font-style: italic;
+            color: var(--accent);
+            position: relative;
+        }
+        .hero-h1 em::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--accent);
+            opacity: 0.25;
+            border-radius: 999px;
+        }
+        .hero-foot {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 3rem;
+            opacity: 0;
+            animation: fadeUp .9s ease 1s both;
+        }
+        .hero-desc {
+            font-size: 1rem;
+            line-height: 1.9;
+            color: var(--ink3);
+            max-width: 420px;
+            font-weight: 300;
+        }
+        .hero-ctas {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 1.2rem;
+        }
 
-    /* BUTTONS */
-    .btn-solid{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;background:var(--ink);color:var(--bg);padding:16px 34px;text-decoration:none;font-weight:500;border:2px solid var(--ink);border-radius:var(--radius-pill);transition:all var(--transition-smooth);display:inline-block;cursor:pointer;box-shadow:var(--shadow-sm);}
-    .btn-solid:hover{background:var(--accent);border-color:var(--accent);box-shadow:var(--shadow-btn);transform:translateY(-2px);}
-    .btn-outline{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);text-decoration:none;border:2px solid var(--border2);padding:16px 34px;border-radius:var(--radius-pill);transition:all var(--transition-smooth);display:inline-block;font-weight:500;}
-    .btn-outline:hover{border-color:var(--accent);color:var(--accent);box-shadow:var(--shadow-md);transform:translateY(-2px);}
-    .btn-text{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);text-decoration:none;border-bottom:2px solid var(--border2);padding-bottom:3px;transition:all var(--transition-smooth);display:inline-block;font-weight:500;}
-    .btn-text:hover{color:var(--accent);border-color:var(--accent);}
-    .btn-text::after{content:' →';opacity:0;transform:translateX(-8px);transition:all var(--transition-smooth);display:inline-block;}
-    .btn-text:hover::after{opacity:1;transform:translateX(0);}
+        /* BUTTONS */
+        .btn-solid {
+            font-size: .78rem;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            background: var(--ink);
+            color: var(--bg);
+            padding: 16px 34px;
+            text-decoration: none;
+            font-weight: 500;
+            border: 2px solid var(--ink);
+            border-radius: var(--radius-pill);
+            transition: all var(--transition-smooth);
+            display: inline-block;
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+        }
+        .btn-solid:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            box-shadow: var(--shadow-btn);
+            transform: translateY(-2px);
+        }
+        .btn-outline {
+            font-size: .78rem;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--ink);
+            text-decoration: none;
+            border: 2px solid var(--border2);
+            padding: 16px 34px;
+            border-radius: var(--radius-pill);
+            transition: all var(--transition-smooth);
+            display: inline-block;
+            font-weight: 500;
+        }
+        .btn-outline:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+        .btn-text {
+            font-size: .78rem;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--ink2);
+            text-decoration: none;
+            border-bottom: 2px solid var(--border2);
+            padding-bottom: 3px;
+            transition: all var(--transition-smooth);
+            display: inline-block;
+            font-weight: 500;
+        }
+        .btn-text:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+        }
+        .btn-text::after {
+            content: ' →';
+            opacity: 0;
+            transform: translateX(-8px);
+            transition: all var(--transition-smooth);
+            display: inline-block;
+        }
+        .btn-text:hover::after {
+            opacity: 1;
+            transform: translateX(0);
+        }
 
-    hr{border:none;border-top:1px solid var(--border);margin:0 6%;}
-    section{padding:8rem 6%;}
-    .wrap{max-width:1080px;margin:0 auto;}
+        hr {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 0 6%;
+        }
+        section {
+            padding: 8rem 6%;
+        }
+        .wrap {
+            max-width: 1080px;
+            margin: 0 auto;
+        }
 
-    .eyebrow{font-size:.74rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:1.1rem;display:flex;align-items:center;gap:.9rem;}
-    .eyebrow::before{content:'';width:24px;height:2px;background:var(--accent);border-radius:999px;}
-    .h2{font-family:var(--ff-s);font-size:clamp(2.4rem,4vw,3.8rem);font-weight:300;line-height:1.15;color:var(--ink);}
-    .h2 em{font-style:italic;}
+        .eyebrow {
+            font-size: .74rem;
+            letter-spacing: .26em;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: .9rem;
+        }
+        .eyebrow::before {
+            content: '';
+            width: 24px;
+            height: 2px;
+            background: var(--accent);
+            border-radius: 999px;
+        }
+        .h2 {
+            font-family: var(--ff-s);
+            font-size: clamp(2.4rem, 4vw, 3.8rem);
+            font-weight: 300;
+            line-height: 1.15;
+            color: var(--ink);
+        }
+        .h2 em {
+            font-style: italic;
+        }
 
-    /* STATS */
-    #stats{background:var(--ink);padding:5rem 6%;position:relative;overflow:hidden;}
-    #stats::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(217,163,74,0.06) 0%,transparent 60%),radial-gradient(ellipse at 70% 50%,rgba(200,133,46,0.04) 0%,transparent 50%);pointer-events:none;}
-    .stats-row{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius-lg);overflow:hidden;position:relative;z-index:1;}
-    .stat{padding:3rem 2rem;text-align:center;border-right:1px solid rgba(255,255,255,0.08);transition:background var(--transition-smooth);}
-    .stat:last-child{border-right:none;}
-    .stat:hover{background:rgba(255,255,255,0.03);}
-    .stat-n{font-family:var(--ff-s);font-size:3.8rem;font-weight:300;color:var(--accent2);line-height:1;margin-bottom:.7rem;transition:transform var(--transition-bounce);}
-    .stat:hover .stat-n{transform:scale(1.08);}
-    .stat-l{font-size:.76rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(254,252,249,0.7);font-weight:300;}
+        /* STATS */
+        #stats {
+            background: var(--ink);
+            padding: 5rem 6%;
+            position: relative;
+            overflow: hidden;
+        }
+        #stats::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 30% 50%, rgba(217, 163, 74, 0.06) 0%, transparent 60%), radial-gradient(ellipse at 70% 50%, rgba(200, 133, 46, 0.04) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        .stats-row {
+            max-width: 1080px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+        }
+        .stat {
+            padding: 3rem 2rem;
+            text-align: center;
+            border-right: 1px solid rgba(255, 255, 255, 0.08);
+            transition: background var(--transition-smooth);
+        }
+        .stat:last-child {
+            border-right: none;
+        }
+        .stat:hover {
+            background: rgba(255, 255, 255, 0.03);
+        }
+        .stat-n {
+            font-family: var(--ff-s);
+            font-size: 3.8rem;
+            font-weight: 300;
+            color: var(--accent2);
+            line-height: 1;
+            margin-bottom: .7rem;
+            transition: transform var(--transition-bounce);
+        }
+        .stat:hover .stat-n {
+            transform: scale(1.08);
+        }
+        .stat-l {
+            font-size: .76rem;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: rgba(254, 252, 249, 0.7);
+            font-weight: 300;
+        }
 
-    /* ABOUT */
-    #about{background:var(--bg);}
-    .about-grid{display:grid;grid-template-columns:1fr 1.6fr;gap:7rem;align-items:center;}
-    .about-img-wrap{position:relative;}
-    .about-img{aspect-ratio:3/4;background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-md);transition:box-shadow var(--transition-smooth),transform var(--transition-smooth);}
-    .about-img:hover{box-shadow:var(--shadow-lg);transform:translateY(-4px);}
-    .about-img img{width:100%;height:100%;object-fit:cover;display:block;}
-    .about-chip{position:absolute;bottom:-22px;right:-22px;width:84px;height:84px;background:linear-gradient(135deg,var(--accent),var(--accent2));border-radius:var(--radius-md);display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:var(--shadow-md);transition:transform var(--transition-bounce),box-shadow var(--transition-smooth);}
-    .about-img-wrap:hover .about-chip{transform:scale(1.08);box-shadow:var(--shadow-lg);}
-    .about-chip .cn{font-family:var(--ff-s);font-size:1.5rem;font-weight:500;color:#fff;line-height:1;}
-    .about-chip .cl{font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,0.9);margin-top:3px;font-weight:500;}
-    .about-text .h2{margin-bottom:1.8rem;}
-    .body-p{font-size:1rem;line-height:2.05;color:var(--ink2);font-weight:300;margin-bottom:1.2rem;}
-    .about-meta{margin-top:2.5rem;padding-top:2.5rem;border-top:1px solid var(--border);display:grid;grid-template-columns:1fr 1fr;gap:1.8rem;}
-    .meta-lbl{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:.4rem;}
-    .meta-val{font-size:.95rem;color:var(--ink);font-weight:400;}
+        /* ABOUT */
+        #about {
+            background: var(--bg);
+        }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.6fr;
+            gap: 7rem;
+            align-items: center;
+        }
+        .about-img-wrap {
+            position: relative;
+        }
+        .about-img {
+            aspect-ratio: 3/4;
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: box-shadow var(--transition-smooth), transform var(--transition-smooth);
+        }
+        .about-img:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
+        }
+        .about-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .about-chip {
+            position: absolute;
+            bottom: -22px;
+            right: -22px;
+            width: 84px;
+            height: 84px;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            border-radius: var(--radius-md);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-md);
+            transition: transform var(--transition-bounce), box-shadow var(--transition-smooth);
+        }
+        .about-img-wrap:hover .about-chip {
+            transform: scale(1.08);
+            box-shadow: var(--shadow-lg);
+        }
+        .about-chip .cn {
+            font-family: var(--ff-s);
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #fff;
+            line-height: 1;
+        }
+        .about-chip .cl {
+            font-size: .55rem;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.9);
+            margin-top: 3px;
+            font-weight: 500;
+        }
+        .about-text .h2 {
+            margin-bottom: 1.8rem;
+        }
+        .body-p {
+            font-size: 1rem;
+            line-height: 2.05;
+            color: var(--ink2);
+            font-weight: 300;
+            margin-bottom: 1.2rem;
+        }
+        .about-meta {
+            margin-top: 2.5rem;
+            padding-top: 2.5rem;
+            border-top: 1px solid var(--border);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.8rem;
+        }
+        .meta-lbl {
+            font-size: .7rem;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: .4rem;
+        }
+        .meta-val {
+            font-size: .95rem;
+            color: var(--ink);
+            font-weight: 400;
+        }
 
-    /* COURSES */
-    #courses{background:var(--bg2);}
-    .courses-top{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:4rem;gap:3rem;}
-    .courses-note{font-size:.92rem;line-height:1.9;color:var(--ink2);max-width:260px;text-align:right;font-weight:300;}
-    .course-item{border-top:1px solid var(--border2);padding:2.8rem 0;display:grid;grid-template-columns:44px 1.5fr 1.5fr 90px 110px;gap:3rem;align-items:center;position:relative;transition:all var(--transition-smooth);border-radius:var(--radius-sm);}
-    .course-item:last-child{border-bottom:1px solid var(--border2);}
-    .course-item::before{content:'';position:absolute;left:-2%;right:-2%;top:8px;bottom:8px;background:var(--bg3);opacity:0;transition:opacity var(--transition-smooth);pointer-events:none;border-radius:var(--radius-md);z-index:0;}
-    .course-item:hover::before{opacity:1;}
-    .course-item:hover{transform:translateX(6px);}
-    .course-item>*{position:relative;z-index:1;}
-    .c-num{font-family:var(--ff-s);font-size:1.1rem;font-weight:500;color:var(--accent);}
-    .c-name{font-family:var(--ff-s);font-size:1.75rem;font-weight:400;color:var(--ink);margin-bottom:.4rem;}
-    .c-desc{font-size:.9rem;color:var(--ink2);font-weight:300;line-height:1.7;}
-    .c-tags{display:flex;flex-direction:column;gap:.55rem;}
-    .c-tag{font-size:.84rem;color:var(--ink2);font-weight:300;display:flex;align-items:center;gap:.7rem;}
-    .c-tag::before{content:'';width:14px;height:2px;background:var(--accent2);flex-shrink:0;border-radius:999px;}
-    .c-price{font-family:var(--ff-s);font-size:2.2rem;font-weight:400;color:var(--ink);text-align:right;white-space:nowrap;}
-    .c-price-unit{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);font-weight:400;text-align:right;margin-top:2px;}
-    .c-expand{background:none;border:2px solid var(--border2);cursor:pointer;font-size:.74rem;letter-spacing:.13em;text-transform:uppercase;color:var(--ink3);font-family:var(--ff-b);font-weight:500;transition:all var(--transition-smooth);padding:8px 16px;white-space:nowrap;text-align:center;border-radius:var(--radius-pill);display:inline-block;align-self:center;justify-self:end;}
-    .c-expand:hover{color:var(--accent);border-color:var(--accent);background:rgba(200,133,46,0.05);}
-    .c-syllabus{display:none;grid-column:1/-1;padding:2rem 0 .5rem;border-top:1px solid var(--border);grid-template-columns:repeat(4,1fr);gap:2.5rem;}
-    .c-syllabus.open{display:grid;animation:fadeUp .4s ease both;}
-    .syl-mo{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:1rem;}
-    .syl-col ul{list-style:none;}
-    .syl-col li{font-size:.88rem;color:var(--ink2);font-weight:300;line-height:2;display:flex;gap:.6rem;transition:color var(--transition-fast);}
-    .syl-col li:hover{color:var(--ink);}
-    .syl-col li::before{content:'—';color:var(--accent2);}
+        /* COURSES */
+        #courses {
+            background: var(--bg2);
+        }
+        .courses-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 4rem;
+            gap: 3rem;
+        }
+        .courses-note {
+            font-size: .92rem;
+            line-height: 1.9;
+            color: var(--ink2);
+            max-width: 260px;
+            text-align: right;
+            font-weight: 300;
+        }
+        .course-item {
+            border-top: 1px solid var(--border2);
+            padding: 2.8rem 0;
+            display: grid;
+            grid-template-columns: 44px 1.5fr 1.5fr 90px 110px;
+            gap: 3rem;
+            align-items: center;
+            position: relative;
+            transition: all var(--transition-smooth);
+            border-radius: var(--radius-sm);
+        }
+        .course-item:last-child {
+            border-bottom: 1px solid var(--border2);
+        }
+        .course-item::before {
+            content: '';
+            position: absolute;
+            left: -2%;
+            right: -2%;
+            top: 8px;
+            bottom: 8px;
+            background: var(--bg3);
+            opacity: 0;
+            transition: opacity var(--transition-smooth);
+            pointer-events: none;
+            border-radius: var(--radius-md);
+            z-index: 0;
+        }
+        .course-item:hover::before {
+            opacity: 1;
+        }
+        .course-item:hover {
+            transform: translateX(6px);
+        }
+        .course-item>* {
+            position: relative;
+            z-index: 1;
+        }
+        .c-num {
+            font-family: var(--ff-s);
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--accent);
+        }
+        .c-name {
+            font-family: var(--ff-s);
+            font-size: 1.75rem;
+            font-weight: 400;
+            color: var(--ink);
+            margin-bottom: .4rem;
+        }
+        .c-desc {
+            font-size: .9rem;
+            color: var(--ink2);
+            font-weight: 300;
+            line-height: 1.7;
+        }
+        .c-tags {
+            display: flex;
+            flex-direction: column;
+            gap: .55rem;
+        }
+        .c-tag {
+            font-size: .84rem;
+            color: var(--ink2);
+            font-weight: 300;
+            display: flex;
+            align-items: center;
+            gap: .7rem;
+        }
+        .c-tag::before {
+            content: '';
+            width: 14px;
+            height: 2px;
+            background: var(--accent2);
+            flex-shrink: 0;
+            border-radius: 999px;
+        }
+        .c-price {
+            font-family: var(--ff-s);
+            font-size: 2.2rem;
+            font-weight: 400;
+            color: var(--ink);
+            text-align: right;
+            white-space: nowrap;
+        }
+        .c-price-unit {
+            font-size: .7rem;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--ink3);
+            font-weight: 400;
+            text-align: right;
+            margin-top: 2px;
+        }
+        .c-expand {
+            background: none;
+            border: 2px solid var(--border2);
+            cursor: pointer;
+            font-size: .74rem;
+            letter-spacing: .13em;
+            text-transform: uppercase;
+            color: var(--ink3);
+            font-family: var(--ff-b);
+            font-weight: 500;
+            transition: all var(--transition-smooth);
+            padding: 8px 16px;
+            white-space: nowrap;
+            text-align: center;
+            border-radius: var(--radius-pill);
+            display: inline-block;
+            align-self: center;
+            justify-self: end;
+        }
+        .c-expand:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+            background: rgba(200, 133, 46, 0.05);
+        }
+        .c-syllabus {
+            display: none;
+            grid-column: 1/-1;
+            padding: 2rem 0 .5rem;
+            border-top: 1px solid var(--border);
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2.5rem;
+        }
+        .c-syllabus.open {
+            display: grid;
+            animation: fadeUp .4s ease both;
+        }
+        .syl-mo {
+            font-size: .7rem;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        .syl-col ul {
+            list-style: none;
+        }
+        .syl-col li {
+            font-size: .88rem;
+            color: var(--ink2);
+            font-weight: 300;
+            line-height: 2;
+            display: flex;
+            gap: .6rem;
+            transition: color var(--transition-fast);
+        }
+        .syl-col li:hover {
+            color: var(--ink);
+        }
+        .syl-col li::before {
+            content: '—';
+            color: var(--accent2);
+        }
 
-    /* PROCESS */
-    #process{background:var(--bg2);}
-    .process-steps{display:grid;grid-template-columns:repeat(5,1fr);border:2px solid var(--border2);border-radius:var(--radius-lg);overflow:hidden;margin-top:3.5rem;box-shadow:var(--shadow-sm);}
-    .p-step{padding:2.8rem 2rem;border-right:2px solid var(--border2);transition:all var(--transition-smooth);position:relative;}
-    .p-step:last-child{border-right:none;}
-    .p-step:hover{background:var(--bg3);transform:translateY(-4px);box-shadow:var(--shadow-md);z-index:1;}
-    .p-n{font-family:var(--ff-s);font-size:2.4rem;font-weight:300;color:var(--accent2);margin-bottom:1.2rem;line-height:1;transition:transform var(--transition-bounce);}
-    .p-step:hover .p-n{transform:scale(1.1);color:var(--accent);}
-    .p-title{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);font-weight:600;margin-bottom:.8rem;}
-    .p-desc{font-size:.88rem;color:var(--ink2);font-weight:300;line-height:1.9;}
+        /* PROCESS */
+        #process {
+            background: var(--bg2);
+        }
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            border: 2px solid var(--border2);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            margin-top: 3.5rem;
+            box-shadow: var(--shadow-sm);
+        }
+        .p-step {
+            padding: 2.8rem 2rem;
+            border-right: 2px solid var(--border2);
+            transition: all var(--transition-smooth);
+            position: relative;
+        }
+        .p-step:last-child {
+            border-right: none;
+        }
+        .p-step:hover {
+            background: var(--bg3);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            z-index: 1;
+        }
+        .p-n {
+            font-family: var(--ff-s);
+            font-size: 2.4rem;
+            font-weight: 300;
+            color: var(--accent2);
+            margin-bottom: 1.2rem;
+            line-height: 1;
+            transition: transform var(--transition-bounce);
+        }
+        .p-step:hover .p-n {
+            transform: scale(1.1);
+            color: var(--accent);
+        }
+        .p-title {
+            font-size: .78rem;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: var(--ink);
+            font-weight: 600;
+            margin-bottom: .8rem;
+        }
+        .p-desc {
+            font-size: .88rem;
+            color: var(--ink2);
+            font-weight: 300;
+            line-height: 1.9;
+        }
 
-    /* SCHEDULE */
-    #schedule{background:var(--bg);}
-    .sch-grid{display:grid;grid-template-columns:repeat(3,1fr);border:2px solid var(--border2);border-radius:var(--radius-lg);overflow:hidden;margin-top:3.5rem;box-shadow:var(--shadow-sm);}
-    .sch-col{border-right:2px solid var(--border2);transition:background var(--transition-fast);}
-    .sch-col:last-child{border-right:none;}
-    .sch-col:hover{background:var(--bg2);}
-    .sch-head{padding:1.8rem 2rem;border-bottom:2px solid var(--border2);background:var(--ink);}
-    .sch-head-title{font-family:var(--ff-s);font-size:1.3rem;font-weight:400;color:var(--bg);margin-bottom:.3rem;}
-    .sch-head-sub{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(254,252,249,0.65);font-weight:300;}
-    .sch-body{padding:0 2rem;}
-    .sch-row{padding:1.4rem 0;border-bottom:1px solid var(--border);display:flex;align-items:baseline;gap:1.2rem;transition:padding-left var(--transition-fast);}
-    .sch-row:last-child{border-bottom:none;}
-    .sch-row:hover{padding-left:4px;}
-    .sch-day-lbl{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600;min-width:44px;flex-shrink:0;}
-    .sch-day-topic{font-size:.92rem;color:var(--ink);font-weight:300;line-height:1.6;}
-    .demo-box{margin-top:2.5rem;background:var(--bg2);border:2px solid var(--border2);border-radius:var(--radius-lg);padding:3rem;display:grid;grid-template-columns:1fr 3fr;gap:4rem;align-items:center;box-shadow:var(--shadow-sm);transition:box-shadow var(--transition-smooth),transform var(--transition-smooth);}
-    .demo-box:hover{box-shadow:var(--shadow-md);transform:translateY(-2px);}
-    .demo-label{font-family:var(--ff-s);font-size:1.75rem;font-weight:300;color:var(--ink);line-height:1.3;}
-    .demo-label em{font-style:italic;color:var(--accent);}
-    .demo-phases{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;}
-    .demo-t{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:.6rem;}
-    .demo-a{font-size:.9rem;color:var(--ink2);font-weight:300;line-height:1.8;}
+        /* SCHEDULE */
+        #schedule {
+            background: var(--bg);
+        }
+        .sch-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            border: 2px solid var(--border2);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            margin-top: 3.5rem;
+            box-shadow: var(--shadow-sm);
+        }
+        .sch-col {
+            border-right: 2px solid var(--border2);
+            transition: background var(--transition-fast);
+        }
+        .sch-col:last-child {
+            border-right: none;
+        }
+        .sch-col:hover {
+            background: var(--bg2);
+        }
+        .sch-head {
+            padding: 1.8rem 2rem;
+            border-bottom: 2px solid var(--border2);
+            background: var(--ink);
+        }
+        .sch-head-title {
+            font-family: var(--ff-s);
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: var(--bg);
+            margin-bottom: .3rem;
+        }
+        .sch-head-sub {
+            font-size: .72rem;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: rgba(254, 252, 249, 0.65);
+            font-weight: 300;
+        }
+        .sch-body {
+            padding: 0 2rem;
+        }
+        .sch-row {
+            padding: 1.4rem 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: baseline;
+            gap: 1.2rem;
+            transition: padding-left var(--transition-fast);
+        }
+        .sch-row:last-child {
+            border-bottom: none;
+        }
+        .sch-row:hover {
+            padding-left: 4px;
+        }
+        .sch-day-lbl {
+            font-size: .7rem;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: 600;
+            min-width: 44px;
+            flex-shrink: 0;
+        }
+        .sch-day-topic {
+            font-size: .92rem;
+            color: var(--ink);
+            font-weight: 300;
+            line-height: 1.6;
+        }
 
-    /* CERTIFICATE */
-    #certificate-preview{background:var(--bg);}
-    #certificate-preview img{border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);transition:transform var(--transition-smooth),box-shadow var(--transition-smooth);}
-    #certificate-preview img:hover{transform:scale(1.02);box-shadow:0 20px 50px rgba(28,24,18,0.14);}
+        /* CERTIFICATE */
+        #certificate-preview {
+            background: var(--bg);
+        }
+        #certificate-preview img {
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+        }
+        #certificate-preview img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 20px 50px rgba(28, 24, 18, 0.14);
+        }
 
-    /* FAQ */
-    #faq{background:var(--bg2);}
-    .faq-wrap{max-width:700px;margin:3.5rem auto 0;}
-    .faq-it{border-top:1px solid var(--border2);transition:background var(--transition-fast);}
-    .faq-it:last-child{border-bottom:1px solid var(--border2);}
-    .faq-it:hover{background:rgba(200,133,46,0.02);}
-    .faq-btn{width:100%;background:none;border:none;cursor:pointer;text-align:left;padding:1.8rem 0;display:flex;justify-content:space-between;align-items:center;gap:2rem;font-family:var(--ff-b);font-size:1rem;color:var(--ink);font-weight:400;letter-spacing:.01em;transition:color var(--transition-fast);}
-    .faq-btn:hover{color:var(--accent);}
-    .faq-ic{width:28px;height:28px;border-radius:50%;border:2px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:var(--ink3);flex-shrink:0;transition:all var(--transition-smooth);}
-    .faq-it.open .faq-ic{background:var(--accent);color:#fff;border-color:var(--accent);transform:rotate(45deg);box-shadow:var(--shadow-btn);}
-    .faq-ans{display:none;padding-bottom:1.8rem;font-size:.95rem;color:var(--ink2);font-weight:300;line-height:2.1;max-width:580px;animation:fadeUp .35s ease both;}
-    .faq-it.open .faq-ans{display:block;}
+        /* FAQ */
+        #faq {
+            background: var(--bg2);
+        }
+        .faq-wrap {
+            max-width: 700px;
+            margin: 3.5rem auto 0;
+        }
+        .faq-it {
+            border-top: 1px solid var(--border2);
+            transition: background var(--transition-fast);
+        }
+        .faq-it:last-child {
+            border-bottom: 1px solid var(--border2);
+        }
+        .faq-it:hover {
+            background: rgba(200, 133, 46, 0.02);
+        }
+        .faq-btn {
+            width: 100%;
+            background: none;
+            border: none;
+            cursor: pointer;
+            text-align: left;
+            padding: 1.8rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+            font-family: var(--ff-b);
+            font-size: 1rem;
+            color: var(--ink);
+            font-weight: 400;
+            letter-spacing: .01em;
+            transition: color var(--transition-fast);
+        }
+        .faq-btn:hover {
+            color: var(--accent);
+        }
+        .faq-ic {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            border: 2px solid var(--border2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            color: var(--ink3);
+            flex-shrink: 0;
+            transition: all var(--transition-smooth);
+        }
+        .faq-it.open .faq-ic {
+            background: var(--accent);
+            color: #fff;
+            border-color: var(--accent);
+            transform: rotate(45deg);
+            box-shadow: var(--shadow-btn);
+        }
+        .faq-ans {
+            display: none;
+            padding-bottom: 1.8rem;
+            font-size: .95rem;
+            color: var(--ink2);
+            font-weight: 300;
+            line-height: 2.1;
+            max-width: 580px;
+            animation: fadeUp .35s ease both;
+        }
+        .faq-it.open .faq-ans {
+            display: block;
+        }
 
-    /* APPLY */
-    #apply{background:var(--ink);position:relative;overflow:hidden;}
-    #apply::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 75% 30%,rgba(217,163,74,0.08) 0%,transparent 55%),radial-gradient(ellipse at 25% 70%,rgba(200,133,46,0.05) 0%,transparent 50%);pointer-events:none;}
-    .apply-inner{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:7rem;align-items:center;position:relative;z-index:1;}
-    .apply-left .h2{color:var(--bg);margin-bottom:1.8rem;}
-    .apply-desc{font-size:1rem;line-height:2;color:rgba(254,252,249,0.75);font-weight:300;margin-bottom:3rem;}
-    .apply-list{margin-bottom:3rem;}
-    .apply-row{display:flex;justify-content:space-between;align-items:center;padding:1.2rem 0;border-top:1px solid rgba(254,252,249,0.08);transition:background var(--transition-fast);}
-    .apply-row:last-child{border-bottom:1px solid rgba(254,252,249,0.08);}
-    .apply-row:hover{background:rgba(255,255,255,0.02);}
-    .a-lbl{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(254,252,249,0.5);font-weight:500;}
-    .a-val{font-size:.95rem;color:rgba(254,252,249,0.88);font-weight:300;}
-    .apply-eyebrow{font-size:.74rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent2);font-weight:600;margin-bottom:1rem;display:flex;align-items:center;gap:.9rem;}
-    .apply-eyebrow::before{content:'';width:24px;height:2px;background:var(--accent2);border-radius:999px;}
+        /* APPLY */
+        #apply {
+            background: var(--ink);
+            position: relative;
+            overflow: hidden;
+        }
+        #apply::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 75% 30%, rgba(217, 163, 74, 0.08) 0%, transparent 55%), radial-gradient(ellipse at 25% 70%, rgba(200, 133, 46, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        .apply-inner {
+            max-width: 1080px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 7rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        .apply-left .h2 {
+            color: var(--bg);
+            margin-bottom: 1.8rem;
+        }
+        .apply-desc {
+            font-size: 1rem;
+            line-height: 2;
+            color: rgba(254, 252, 249, 0.75);
+            font-weight: 300;
+            margin-bottom: 3rem;
+        }
+        .apply-list {
+            margin-bottom: 3rem;
+        }
+        .apply-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 0;
+            border-top: 1px solid rgba(254, 252, 249, 0.08);
+            transition: background var(--transition-fast);
+        }
+        .apply-row:last-child {
+            border-bottom: 1px solid rgba(254, 252, 249, 0.08);
+        }
+        .apply-row:hover {
+            background: rgba(255, 255, 255, 0.02);
+        }
+        .a-lbl {
+            font-size: .7rem;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: rgba(254, 252, 249, 0.5);
+            font-weight: 500;
+        }
+        .a-val {
+            font-size: .95rem;
+            color: rgba(254, 252, 249, 0.88);
+            font-weight: 300;
+        }
+        .apply-eyebrow {
+            font-size: .74rem;
+            letter-spacing: .26em;
+            text-transform: uppercase;
+            color: var(--accent2);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: .9rem;
+        }
+        .apply-eyebrow::before {
+            content: '';
+            width: 24px;
+            height: 2px;
+            background: var(--accent2);
+            border-radius: 999px;
+        }
 
-    .apply-cta-box{background:rgba(254,252,249,0.04);border:2px solid rgba(254,252,249,0.12);border-radius:var(--radius-lg);padding:3rem;transition:all var(--transition-smooth);box-shadow:var(--shadow-sm);position:relative;overflow:hidden;}
-    .apply-cta-box:hover{border-color:rgba(217,163,74,0.35);box-shadow:0 8px 32px rgba(0,0,0,0.2);transform:translateY(-3px);}
-    .apply-cta-box h3{font-family:var(--ff-s);font-size:2.2rem;font-weight:300;color:var(--bg);margin-bottom:.8rem;line-height:1.2;}
-    .apply-cta-box h3 em{font-style:italic;color:var(--accent2);}
-    .apply-cta-box p{font-size:.95rem;color:rgba(254,252,249,0.65);font-weight:300;line-height:2;margin-bottom:2.5rem;}
-    .apply-features{margin-bottom:2.5rem;display:flex;flex-direction:column;gap:.9rem;}
-    .apply-feature{display:flex;align-items:center;gap:1rem;font-size:.92rem;color:rgba(254,252,249,0.75);font-weight:300;}
-    .apply-feature::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--accent2);flex-shrink:0;box-shadow:0 0 10px rgba(217,163,74,0.5);}
-    .btn-apply{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;background:var(--accent2);color:var(--ink);padding:17px 36px;text-decoration:none;font-weight:600;border:2px solid var(--accent2);border-radius:var(--radius-pill);transition:all var(--transition-smooth);display:inline-block;box-shadow:var(--shadow-btn);}
-    .btn-apply:hover{background:var(--accent);border-color:var(--accent);color:#fff;box-shadow:0 8px 28px rgba(200,133,46,0.4);transform:translateY(-3px);}
-    .apply-note{font-size:.8rem;color:rgba(254,252,249,0.45);font-weight:300;margin-top:1.2rem;line-height:1.8;}
-    .free-tag{display:inline-flex;align-items:center;gap:.5rem;background:rgba(61,122,92,0.2);border:1px solid rgba(61,122,92,0.4);color:#7EC99A;padding:7px 16px;border-radius:var(--radius-pill);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500;margin-bottom:1.8rem;}
+        .apply-cta-box {
+            background: rgba(254, 252, 249, 0.04);
+            border: 2px solid rgba(254, 252, 249, 0.12);
+            border-radius: var(--radius-lg);
+            padding: 3rem;
+            transition: all var(--transition-smooth);
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            overflow: hidden;
+        }
+        .apply-cta-box:hover {
+            border-color: rgba(217, 163, 74, 0.35);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            transform: translateY(-3px);
+        }
+        .apply-cta-box h3 {
+            font-family: var(--ff-s);
+            font-size: 2.2rem;
+            font-weight: 300;
+            color: var(--bg);
+            margin-bottom: .8rem;
+            line-height: 1.2;
+        }
+        .apply-cta-box h3 em {
+            font-style: italic;
+            color: var(--accent2);
+        }
+        .apply-cta-box p {
+            font-size: .95rem;
+            color: rgba(254, 252, 249, 0.65);
+            font-weight: 300;
+            line-height: 2;
+            margin-bottom: 2.5rem;
+        }
+        .apply-features {
+            margin-bottom: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: .9rem;
+        }
+        .apply-feature {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: .92rem;
+            color: rgba(254, 252, 249, 0.75);
+            font-weight: 300;
+        }
+        .apply-feature::before {
+            content: '';
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--accent2);
+            flex-shrink: 0;
+            box-shadow: 0 0 10px rgba(217, 163, 74, 0.5);
+        }
+        .btn-apply {
+            font-size: .78rem;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            background: var(--accent2);
+            color: var(--ink);
+            padding: 17px 36px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 2px solid var(--accent2);
+            border-radius: var(--radius-pill);
+            transition: all var(--transition-smooth);
+            display: inline-block;
+            box-shadow: var(--shadow-btn);
+        }
+        .btn-apply:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #fff;
+            box-shadow: 0 8px 28px rgba(200, 133, 46, 0.4);
+            transform: translateY(-3px);
+        }
+        .apply-note {
+            font-size: .8rem;
+            color: rgba(254, 252, 249, 0.45);
+            font-weight: 300;
+            margin-top: 1.2rem;
+            line-height: 1.8;
+        }
 
-    /* FOOTER */
-    footer{padding:3rem 6%;background:#100E0A;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,0.05);}
-    .footer-logo{font-family:var(--ff-s);font-size:1.2rem;font-weight:400;color:rgba(254,252,249,0.65);letter-spacing:.04em;display:flex;align-items:center;gap:.5rem;transition:color var(--transition-fast);}
-    .footer-logo:hover{color:var(--accent2);}
-    .footer-logo .dot{background:var(--accent);}
-    .footer-mid{font-family:var(--ff-s);font-style:italic;font-size:.95rem;color:rgba(254,252,249,0.3);}
-    .footer-links{list-style:none;display:flex;gap:2rem;}
-    .footer-links a{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(254,252,249,0.38);text-decoration:none;font-weight:400;transition:color var(--transition-fast);position:relative;padding-bottom:3px;}
-    .footer-links a::after{content:'';position:absolute;bottom:-1px;left:0;width:100%;height:1px;background:var(--accent2);transform:scaleX(0);transform-origin:right center;transition:transform .3s cubic-bezier(0.22,0.61,0.36,1);}
-    .footer-links a:hover{color:var(--accent2);}
-    .footer-links a:hover::after{transform:scaleX(1);transform-origin:left center;}
+        /* FOOTER */
+        footer {
+            padding: 3rem 6%;
+            background: #100E0A;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            flex-wrap: wrap;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .footer-logo {
+            font-family: var(--ff-s);
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: rgba(254, 252, 249, 0.65);
+            letter-spacing: .04em;
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            transition: color var(--transition-fast);
+        }
+        .footer-logo:hover {
+            color: var(--accent2);
+        }
+        .footer-logo .dot {
+            background: var(--accent);
+        }
+        .footer-mid {
+            font-family: var(--ff-s);
+            font-style: italic;
+            font-size: .95rem;
+            color: rgba(254, 252, 249, 0.3);
+        }
+        .footer-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .footer-links a {
+            font-size: .72rem;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: rgba(254, 252, 249, 0.38);
+            text-decoration: none;
+            font-weight: 400;
+            transition: color var(--transition-fast);
+            position: relative;
+            padding-bottom: 3px;
+        }
+        .footer-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: var(--accent2);
+            transform: scaleX(0);
+            transform-origin: right center;
+            transition: transform .3s cubic-bezier(0.22, 0.61, 0.36, 1);
+        }
+        .footer-links a:hover {
+            color: var(--accent2);
+        }
+        .footer-links a:hover::after {
+            transform: scaleX(1);
+            transform-origin: left center;
+        }
 
-    @keyframes fadeUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
-    .reveal{opacity:0;transform:translateY(30px);transition:opacity .85s cubic-bezier(0.16,1,0.3,1),transform .85s cubic-bezier(0.16,1,0.3,1);}
-    .reveal.vis{opacity:1;transform:translateY(0);}
-    .d1{transition-delay:.12s;}.d2{transition-delay:.22s;}.d3{transition-delay:.32s;}
+        /* SOCIAL CONNECT */
+        .social-connect {
+            display: flex;
+            align-items: center;
+            gap: 1.6rem;
+            flex-wrap: wrap;
+        }
+        .social-connect a {
+            font-size: .72rem;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: rgba(254, 252, 249, 0.5);
+            text-decoration: none;
+            font-weight: 400;
+            transition: all var(--transition-fast);
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            padding: 6px 0;
+            position: relative;
+        }
+        .social-connect a::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: var(--accent2);
+            transform: scaleX(0);
+            transform-origin: right center;
+            transition: transform .3s cubic-bezier(0.22, 0.61, 0.36, 1);
+        }
+        .social-connect a:hover {
+            color: var(--accent2);
+        }
+        .social-connect a:hover::after {
+            transform: scaleX(1);
+            transform-origin: left center;
+        }
+        .social-icon {
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+            opacity: 0.7;
+            transition: opacity var(--transition-fast);
+        }
+        .social-connect a:hover .social-icon {
+            opacity: 1;
+        }
+        .footer-bottom-row {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            flex-wrap: wrap;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            margin-top: 0.5rem;
+        }
+        .footer-tagline {
+            font-family: var(--ff-s);
+            font-style: italic;
+            font-size: .9rem;
+            color: rgba(254, 252, 249, 0.28);
+        }
 
-    /* RESPONSIVE */
-    @media(max-width:960px){
-      .nav-links{display:none;}.burger{display:flex;}
-      .hero-h1{font-size:clamp(2.8rem,10vw,5rem);}.hero-wm{display:none;}
-      .hero-foot{flex-direction:column;align-items:flex-start;}
-      .hero-ctas{align-items:flex-start;flex-direction:row;}
-      .stats-row{grid-template-columns:1fr 1fr;}
-      .stat{border-bottom:1px solid rgba(255,255,255,0.08);}
-      .stat:nth-child(2){border-right:none;}
-      .stat:nth-child(3),.stat:nth-child(4){border-bottom:none;}
-      .about-grid{grid-template-columns:1fr;gap:4rem;}
-      .about-img-wrap{max-width:280px;}
-      .course-item{grid-template-columns:1fr;gap:1.2rem;}
-      .c-price,.c-price-unit{text-align:left;}
-      .c-expand{justify-self:start;text-align:left;margin-top:0.5rem;}
-      .c-syllabus.open{grid-template-columns:1fr 1fr;}
-      .process-steps{grid-template-columns:1fr 1fr;}
-      .p-step:nth-child(2){border-right:none;}
-      .p-step{border-bottom:2px solid var(--border2);}
-      .sch-grid{grid-template-columns:1fr;}
-      .sch-col{border-right:none;border-bottom:2px solid var(--border2);}
-      .sch-col:last-child{border-bottom:none;}
-      .demo-box{grid-template-columns:1fr;gap:2rem;}
-      .demo-phases{grid-template-columns:1fr 1fr;}
-      .apply-inner{grid-template-columns:1fr;gap:4rem;}
-      footer{flex-direction:column;align-items:flex-start;gap:1.2rem;}
-    }
-    @media(max-width:520px){
-      section{padding:5rem 5%;}
-      .process-steps{grid-template-columns:1fr;}.p-step{border-right:none;}
-      .demo-phases{grid-template-columns:1fr;}
-      .c-syllabus.open{grid-template-columns:1fr;}
-      .hero-ctas{flex-direction:column;width:100%;}
-      .hero-ctas .btn-solid,.hero-ctas .btn-text{text-align:center;width:100%;}
-      .courses-top{flex-direction:column;align-items:flex-start;}
-      .courses-note{text-align:left;max-width:100%;}
-    }
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity .85s cubic-bezier(0.16, 1, 0.3, 1), transform .85s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.vis {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .d1 {
+            transition-delay: .12s;
+        }
+        .d2 {
+            transition-delay: .22s;
+        }
+        .d3 {
+            transition-delay: .32s;
+        }
 
-    ::selection{background:rgba(200,133,46,0.2);color:var(--ink);}
-    a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px;}
-  </style>
+        /* RESPONSIVE */
+        @media(max-width:960px) {
+            .nav-links {
+                display: none;
+            }
+            .burger {
+                display: flex;
+            }
+            .hero-h1 {
+                font-size: clamp(2.8rem, 10vw, 5rem);
+            }
+            .hero-wm {
+                display: none;
+            }
+            .hero-foot {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .hero-ctas {
+                align-items: flex-start;
+                flex-direction: row;
+            }
+            .stats-row {
+                grid-template-columns: 1fr 1fr;
+            }
+            .stat {
+                border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            }
+            .stat:nth-child(2) {
+                border-right: none;
+            }
+            .stat:nth-child(3),
+            .stat:nth-child(4) {
+                border-bottom: none;
+            }
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 4rem;
+            }
+            .about-img-wrap {
+                max-width: 280px;
+            }
+            .course-item {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+            .c-price,
+            .c-price-unit {
+                text-align: left;
+            }
+            .c-expand {
+                justify-self: start;
+                text-align: left;
+                margin-top: 0.5rem;
+            }
+            .c-syllabus.open {
+                grid-template-columns: 1fr 1fr;
+            }
+            .process-steps {
+                grid-template-columns: 1fr 1fr;
+            }
+            .p-step:nth-child(2) {
+                border-right: none;
+            }
+            .p-step {
+                border-bottom: 2px solid var(--border2);
+            }
+            .sch-grid {
+                grid-template-columns: 1fr;
+            }
+            .sch-col {
+                border-right: none;
+                border-bottom: 2px solid var(--border2);
+            }
+            .sch-col:last-child {
+                border-bottom: none;
+            }
+            .apply-inner {
+                grid-template-columns: 1fr;
+                gap: 4rem;
+            }
+            footer {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1.2rem;
+            }
+            .footer-bottom-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1.2rem;
+            }
+        }
+        @media(max-width:520px) {
+            section {
+                padding: 5rem 5%;
+            }
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+            .p-step {
+                border-right: none;
+            }
+            .c-syllabus.open {
+                grid-template-columns: 1fr;
+            }
+            .hero-ctas {
+                flex-direction: column;
+                width: 100%;
+            }
+            .hero-ctas .btn-solid,
+            .hero-ctas .btn-text {
+                text-align: center;
+                width: 100%;
+            }
+            .courses-top {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .courses-note {
+                text-align: left;
+                max-width: 100%;
+            }
+            .social-connect {
+                gap: 1rem;
+            }
+        }
+
+        ::selection {
+            background: rgba(200, 133, 46, 0.2);
+            color: var(--ink);
+        }
+        a:focus-visible,
+        button:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 3px;
+            border-radius: 4px;
+        }
+    </style>
 </head>
 <body>
-  <!-- NAV -->
-  <nav id="nav">
-    <a href="#hero" class="logo"><span class="logo-dot"></span>As Arabic Academy</a>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#courses">Courses</a></li>
-      <li><a href="#process">Process</a></li>
-      <li><a href="#schedule">Schedule</a></li>
-      <li><a href="#certificate-preview">Certificate</a></li>
-      <li><a href="#faq">FAQ</a></li>
-      <li><a href="#apply" class="nav-btn">Apply Now</a></li>
-    </ul>
-    <button class="burger" onclick="toggleNav()" aria-label="Menu"><span></span><span></span><span></span></button>
-  </nav>
+    <!-- NAV -->
+    <nav id="nav">
+        <a href="#hero" class="logo"><span class="logo-dot"></span><i>AS Arabic Academy</i></a>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#courses">Courses</a></li>
+            <li><a href="#process">Process</a></li>
+            <li><a href="#schedule">Schedule</a></li>
+            <li><a href="#certificate-preview">Certificate</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#apply" class="nav-btn">Apply Now</a></li>
+        </ul>
+        <button class="burger" onclick="toggleNav()" aria-label="Menu"><span></span><span></span><span></span></button>
+    </nav>
 
-  <div class="mob-nav" id="mobNav">
-    <a href="#about" onclick="toggleNav()">About</a>
-    <a href="#courses" onclick="toggleNav()">Courses</a>
-    <a href="#process" onclick="toggleNav()">Process</a>
-    <a href="#schedule" onclick="toggleNav()">Schedule</a>
-    <a href="#certificate-preview" onclick="toggleNav()">Certificate</a>
-    <a href="#faq" onclick="toggleNav()">FAQ</a>
-    <a href="#apply" onclick="toggleNav()">Apply Now</a>
-  </div>
-
-  <!-- HERO -->
-  <section id="hero">
-    <div class="hero-wm">ع</div>
-    <div style="max-width:1080px;margin:0 auto;width:100%;">
-      <div class="hero-rule"></div>
-      <p class="hero-tag">Personal · Online · 1-on-1 Classes</p>
-      <h1 class="hero-h1">Learn <em>Arabic</em><br>& Typing —<br>from home</h1>
-      <div class="hero-foot">
-        <p class="hero-desc">A personal academy offering Arabic language and typing courses — structured with care, paced entirely around you, starting whenever you are ready.</p>
-        <div class="hero-ctas">
-          <a href="#apply" class="btn-solid">Apply Now — Free Demo</a>
-          <a href="#courses" class="btn-text">Explore courses</a>
-        </div>
-      </div>
+    <div class="mob-nav" id="mobNav">
+        <a href="#about" onclick="toggleNav()">About</a>
+        <a href="#courses" onclick="toggleNav()">Courses</a>
+        <a href="#process" onclick="toggleNav()">Process</a>
+        <a href="#schedule" onclick="toggleNav()">Schedule</a>
+        <a href="#certificate-preview" onclick="toggleNav()">Certificate</a>
+        <a href="#faq" onclick="toggleNav()">FAQ</a>
+        <a href="#apply" onclick="toggleNav()">Apply Now</a>
     </div>
-  </section>
 
-  <hr>
+    <!-- HERO -->
+    <section id="hero">
+        <div class="hero-wm">ع  </div>
+        <div style="max-width:1080px;margin:0 auto;width:100%;">
+            <div class="hero-rule"></div>
+            <p class="hero-tag">Personal · Online · 1-on-1 Classes</p>
+            <h1 class="hero-h1">Learn <em>Arabic</em><br>& Typing —<br>from home</h1>
+            <div class="hero-foot">
+                <p class="hero-desc">A personal academy offering Arabic language and typing courses — structured with care, paced entirely around you, starting whenever you are ready.</p>
+                <div class="hero-ctas">
+                    <a href="#apply" class="btn-solid">Apply Now</a>
+                    <a href="#courses" class="btn-text">Explore courses</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- STATS -->
-  <section id="stats">
-    <div class="stats-row reveal">
-      <div class="stat"><div class="stat-n">3</div><div class="stat-l">Courses Offered</div></div>
-      <div class="stat"><div class="stat-n">48</div><div class="stat-l">Classes · Arabic Course</div></div>
-      <div class="stat"><div class="stat-n">1:1</div><div class="stat-l">Personal Attention</div></div>
-      <div class="stat"><div class="stat-n">Free</div><div class="stat-l">First Demo Class</div></div>
-    </div>
-  </section>
+    <hr> 
 
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="wrap">
-      <div class="about-grid">
-        <div class="about-img-wrap reveal">
-          <div class="about-img"><img src="img2.jpg" alt="Ashraf Ali - Arabic Teacher"></div>
-          <div class="about-chip"><span class="cn">MA</span><span class="cl">Arabic</span></div>
+    <!-- STATS -->
+    <section id="stats">
+        <div class="stats-row reveal">
+            <div class="stat"><div class="stat-n">3</div><div class="stat-l">Courses Offered</div></div>
+            <div class="stat"><div class="stat-n">48</div><div class="stat-l">Classes · Arabic Course</div></div>
+            <div class="stat"><div class="stat-n">1:1</div><div class="stat-l">Personal Attention</div></div>
+            <div class="stat"><div class="stat-n">100%</div><div class="stat-l">Online</div></div>
         </div>
-        <div class="about-text reveal d1">
-          <div class="eyebrow">About the Academy</div>
-          <h2 class="h2">Teaching Arabic<br>with <em>intention</em></h2>
-          <br>
-          <p class="body-p">I am Ashraf Ali — currently pursuing my Master's in Arabic Language and the founder of As Arabic Academy. I believe learning Arabic should feel personal, unhurried, and genuinely encouraging.</p>
-          <p class="body-p">Every class is a private 1-on-1 session built around your pace, your goals, and your schedule. From your very first Arabic letter to full sentences — I am with you each step of the way.</p>
-          <p class="body-p" style="font-style:italic;color:var(--accent);font-family:var(--ff-s);font-size:1.05rem;">"Arabic is not just a language — it is a gateway to the Quran, to history, and to a living culture."</p>
-          <div class="about-meta">
-            <div><div class="meta-lbl">Qualification</div><div class="meta-val">MA Arabic — Final Year</div></div>
-            <div><div class="meta-lbl">Class Format</div><div class="meta-val">1-on-1 Personal Online</div></div>
-            <div><div class="meta-lbl">Platform</div><div class="meta-val">Google Meet</div></div>
-            <div><div class="meta-lbl">Mode</div><div class="meta-val">100% Online · Pan India</div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- COURSES -->
-  <section id="courses">
-    <div class="wrap">
-      <div class="courses-top reveal">
-        <div>
-          <div class="eyebrow">Courses</div>
-          <h2 class="h2">Three courses,<br><em>one teacher</em></h2>
+    <!-- ABOUT -->
+    <section id="about">
+        <div class="wrap">
+            <div class="about-grid">
+                <div class="about-img-wrap reveal">
+                    <div class="about-img"><img src="img2.jpg" alt="Ashraf Ali - Arabic Teacher"></div>
+                    <div class="about-chip"><span class="cn">MA</span><span class="cl">Arabic</span></div>
+                </div>
+                <div class="about-text reveal d1">
+                    <div class="eyebrow">About the Academy</div>
+                    <h2 class="h2">Teaching Arabic<br>with <em>intention</em></h2>
+                    <br>
+                    <p class="body-p">I am Ashraf Ali — currently pursuing my Master's in Arabic Language and the founder of <i>AS Arabic Academy.</i> I believe learning Arabic should feel personal, unhurried, and genuinely encouraging.</p>
+                    <p class="body-p">Every class is a private 1-on-1 session built around your pace, your goals, and your schedule. From your very first Arabic letter to full sentences — I am with you each step of the way.</p>
+                    <p class="body-p" style="font-style:italic;color:var(--accent);font-family:var(--ff-s);font-size:1.05rem;">"Arabic is not just a language — it is a gateway to the Quran, to history, and to a living culture."</p>
+                    <div class="about-meta">
+                        <div><div class="meta-lbl">Qualification</div><div class="meta-val">MA Arabic — Final Year</div></div>
+                        <div><div class="meta-lbl">Class Format</div><div class="meta-val">1-on-1 Personal Online</div></div>
+                        <div><div class="meta-lbl">Platform</div><div class="meta-val">Google Meet</div></div>
+                        <div><div class="meta-lbl">Mode</div><div class="meta-val">100% Online · Pan India</div></div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <p class="courses-note">Each course is taught personally by Ashraf Ali — structured, paced, and scheduled entirely around you.</p>
-      </div>
+    </section>
 
-      <div class="course-item reveal">
-        <div class="c-num">01</div>
-        <div><div class="c-name">Arabic Language</div><div class="c-desc">Beginner to Pre-intermediate — alphabet, grammar, vocabulary, and conversation.</div></div>
-        <div class="c-tags">
-          <span class="c-tag">4 months · 48 classes</span>
-          <span class="c-tag">3 sessions per week · 45 min</span>
-          <span class="c-tag">Certificate on completion</span>
-        </div>
-        <div><div class="c-price">₹499</div><div class="c-price-unit">per month</div></div>
-        <button class="c-expand" onclick="expandSyl(this)">Syllabus ↓</button>
-        <div class="c-syllabus">
-          <div class="syl-col"><div class="syl-mo">Month 1 — Strong Foundation</div><ul><li>Arabic Basics</li><li>Harakat (Vowels)</li><li>Basic Vocabulary + Reading</li><li>Sentence Basics</li></ul></div>
-          <div class="syl-col"><div class="syl-mo">Month 2 — Sentence Building</div><ul><li>Pronouns</li><li>Verb Basics (Present)</li><li>Questions</li><li>Prepositions</li></ul></div>
-          <div class="syl-col"><div class="syl-mo">Month 3 — Grammar + Conversation</div><ul><li>Past Tense</li><li>Adjectives</li><li>Possession</li><li>Daily Conversation</li></ul></div>
-          <div class="syl-col"><div class="syl-mo">Month 4 — Intermediate level</div><ul><li>Past &amp; future tense</li><li>Sentence Expansion</li><li>Reading Practice</li><li>Reading &amp; translation</li></ul></div>
-        </div>
-      </div>
+    <!-- COURSES -->
+    <section id="courses">
+        <div class="wrap">
+            <div class="courses-top reveal">
+                <div>
+                    <div class="eyebrow">Courses</div>
+                    <h2 class="h2">Three courses,<br><em>one teacher</em></h2>
+                </div>
+                <p class="courses-note">Each course is taught personally by Ashraf Ali — structured, paced, and scheduled entirely around you.</p>
+            </div>
 
-      <div class="course-item reveal d1">
-        <div class="c-num">02</div>
-        <div><div class="c-name">Arabic Typing</div><div class="c-desc">Master the Arabic keyboard — layout to 25–30 words per minute, including Harakat.</div></div>
-        <div class="c-tags">
-          <span class="c-tag">2 months · 24 classes</span>
-          <span class="c-tag">3 sessions per week · 45 min</span>
-          <span class="c-tag">Certificate on completion</span>
-        </div>
-        <div><div class="c-price">₹299</div><div class="c-price-unit">per month</div></div>
-        <button class="c-expand" onclick="expandSyl(this)">Syllabus ↓</button>
-        <div class="c-syllabus">
-          <div class="syl-col"><div class="syl-mo">Month 1 — Foundation</div><ul><li>Arabic keyboard layout</li><li>All keys &amp; home row</li><li>Typing with Harakat</li><li>Simple Arabic words</li></ul></div>
-          <div class="syl-col"><div class="syl-mo">Month 2 — Advanced</div><ul><li>Sentences &amp; paragraphs</li><li>Typing in Word &amp; WhatsApp</li><li>Speed building 25–30 wpm</li><li>Real-world typing tasks</li></ul></div>
-        </div>
-      </div>
+            <div class="course-item reveal">
+                <div class="c-num">01</div>
+                <div><div class="c-name">Arabic Language</div><div class="c-desc">Beginner to Pre-intermediate — alphabet, grammar, vocabulary, and conversation.</div></div>
+                <div class="c-tags">
+                    <span class="c-tag">4 months · 48 classes</span>
+                    <span class="c-tag">3 sessions per week · 45 min</span>
+                    <span class="c-tag">Certificate on completion</span>
+                </div>
+                <div><div class="c-price">₹499</div><div class="c-price-unit">per month</div></div>
+                <button class="c-expand" onclick="expandSyl(this)">Syllabus ↓</button>
+                <div class="c-syllabus">
+                    <div class="syl-col"><div class="syl-mo">Month 1 — Strong Foundation</div><ul><li>Arabic Basics</li><li>Harakat (Vowels)</li><li>Basic Vocabulary + Reading</li><li>Sentence Basics</li></ul></div>
+                    <div class="syl-col"><div class="syl-mo">Month 2 — Sentence Building</div><ul><li>Pronouns</li><li>Verb Basics (Present)</li><li>Questions</li><li>Prepositions</li></ul></div>
+                    <div class="syl-col"><div class="syl-mo">Month 3 — Grammar + Conversation</div><ul><li>Past Tense</li><li>Adjectives</li><li>Possession</li><li>Daily Conversation</li></ul></div>
+                    <div class="syl-col"><div class="syl-mo">Month 4 — Intermediate level</div><ul><li>Past &amp; future tense</li><li>Sentence Expansion</li><li>Reading Practice</li><li>Reading &amp; translation</li></ul></div>
+                </div>
+            </div>
 
-      <div class="course-item reveal d2">
-        <div class="c-num">03</div>
-        <div><div class="c-name">English Typing</div><div class="c-desc">Correct finger placement, professional accuracy, and 30–35 words per minute.</div></div>
-        <div class="c-tags">
-          <span class="c-tag">2 months · 24 classes</span>
-          <span class="c-tag">3 sessions per week · 45 min</span>
-          <span class="c-tag">Certificate on completion</span>
-        </div>
-        <div><div class="c-price">₹299</div><div class="c-price-unit">per month</div></div>
-        <button class="c-expand" onclick="expandSyl(this)">Syllabus ↓</button>
-        <div class="c-syllabus">
-          <div class="syl-col"><div class="syl-mo">Month 1 — Foundation</div><ul><li>Keyboard &amp; finger placement</li><li>Home, upper &amp; lower rows</li><li>Numbers &amp; symbols</li><li>Basic word typing</li></ul></div>
-          <div class="syl-col"><div class="syl-mo">Month 2 — Advanced</div><ul><li>Sentences &amp; paragraphs</li><li>Professional email typing</li><li>Speed building 30–35 wpm</li><li>Real-world typing tasks</li></ul></div>
-        </div>
-      </div>
-    </div>
-  </section>
+            <div class="course-item reveal d1">
+                <div class="c-num">02</div>
+                <div><div class="c-name">Arabic Typing</div><div class="c-desc">Master the Arabic keyboard — layout to 25–30 words per minute, including Harakat.</div></div>
+                <div class="c-tags">
+                    <span class="c-tag">2 months · 24 classes</span>
+                    <span class="c-tag">3 sessions per week · 45 min</span>
+                    <span class="c-tag">Certificate on completion</span>
+                </div>
+                <div><div class="c-price">₹399</div><div class="c-price-unit">per month</div></div>
+                <button class="c-expand" onclick="expandSyl(this)">Syllabus ↓</button>
+                <div class="c-syllabus">
+                    <div class="syl-col"><div class="syl-mo">Month 1 — Foundation</div><ul><li>Arabic keyboard layout</li><li>All keys &amp; home row</li><li>Typing with Harakat</li><li>Simple Arabic words</li></ul></div>
+                    <div class="syl-col"><div class="syl-mo">Month 2 — Advanced</div><ul><li>Sentences &amp; paragraphs</li><li>Typing in Word &amp; WhatsApp</li><li>Speed building 25–30 wpm</li><li>Real-world typing tasks</li></ul></div>
+                </div>
+            </div>
 
-  <!-- PROCESS -->
-  <section id="process">
-    <div class="wrap">
-      <div class="reveal">
-        <div class="eyebrow">How It Works</div>
-        <h2 class="h2">Five steps to<br><em>fluency</em></h2>
-      </div>
-      <div class="process-steps reveal d1">
-        <div class="p-step"><div class="p-n">01</div><div class="p-title">Register</div><div class="p-desc">Fill the Google Form. Takes under two minutes.</div></div>
-        <div class="p-step"><div class="p-n">02</div><div class="p-title">Free Demo</div><div class="p-desc">A full 45-minute class — completely free, no commitment.</div></div>
-        <div class="p-step"><div class="p-n">03</div><div class="p-title">Schedule</div><div class="p-desc">Pick the days and times that fit your routine.</div></div>
-        <div class="p-step"><div class="p-n">04</div><div class="p-title">Learn</div><div class="p-desc">Three personal sessions every week — teach, practice, revise.</div></div>
-        <div class="p-step"><div class="p-n">05</div><div class="p-title">Certificate</div><div class="p-desc">Complete your course and receive a certificate.</div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SCHEDULE -->
-  <section id="schedule">
-    <div class="wrap">
-      <div class="reveal">
-        <div class="eyebrow">Weekly Rhythm</div>
-        <h2 class="h2">A <em>structured</em><br>weekly pattern</h2>
-      </div>
-      <div class="sch-grid reveal d1">
-        <div class="sch-col">
-          <div class="sch-head"><div class="sch-head-title">Arabic Language</div><div class="sch-head-sub">3 days · 45 min each</div></div>
-          <div class="sch-body">
-            <div class="sch-row"><span class="sch-day-lbl">Day 1</span><span class="sch-day-topic">New topic — teach &amp; explain</span></div>
-            <div class="sch-row"><span class="sch-day-lbl">Day 2</span><span class="sch-day-topic">Practice &amp; written exercise</span></div>
-            <div class="sch-row"><span class="sch-day-lbl">Day 3</span><span class="sch-day-topic">Revision + small test</span></div>
-          </div>
+            <div class="course-item reveal d2">
+                <div class="c-num">03</div>
+                <div><div class="c-name">English Typing</div><div class="c-desc">Correct finger placement, professional accuracy, and 30–35 words per minute.</div></div>
+                <div class="c-tags">
+                    <span class="c-tag">2 months · 24 classes</span>
+                    <span class="c-tag">3 sessions per week · 45 min</span>
+                    <span class="c-tag">Certificate on completion</span>
+                </div>
+                <div><div class="c-price">₹299</div><div class="c-price-unit">per month</div></div>
+                <button class="c-expand" onclick="expandSyl(this)">Syllabus ↓</button>
+                <div class="c-syllabus">
+                    <div class="syl-col"><div class="syl-mo">Month 1 — Foundation</div><ul><li>Keyboard &amp; finger placement</li><li>Home, upper &amp; lower rows</li><li>Numbers &amp; symbols</li><li>Basic word typing</li></ul></div>
+                    <div class="syl-col"><div class="syl-mo">Month 2 — Advanced</div><ul><li>Sentences &amp; paragraphs</li><li>Professional email typing</li><li>Speed building 30–35 wpm</li><li>Real-world typing tasks</li></ul></div>
+                </div>
+            </div>
         </div>
-        <div class="sch-col">
-          <div class="sch-head"><div class="sch-head-title">Arabic Typing</div><div class="sch-head-sub">3 days · 45 min each</div></div>
-          <div class="sch-body">
-            <div class="sch-row"><span class="sch-day-lbl">Day 1</span><span class="sch-day-topic">New keys — teach &amp; practice</span></div>
-            <div class="sch-row"><span class="sch-day-lbl">Day 2</span><span class="sch-day-topic">Typing practice session</span></div>
-            <div class="sch-row"><span class="sch-day-lbl">Day 3</span><span class="sch-day-topic">Speed test + revision</span></div>
-          </div>
-        </div>
-        <div class="sch-col">
-          <div class="sch-head"><div class="sch-head-title">English Typing</div><div class="sch-head-sub">3 days · 45 min each</div></div>
-          <div class="sch-body">
-            <div class="sch-row"><span class="sch-day-lbl">Day 1</span><span class="sch-day-topic">New keys — teach &amp; practice</span></div>
-            <div class="sch-row"><span class="sch-day-lbl">Day 2</span><span class="sch-day-topic">Typing practice session</span></div>
-            <div class="sch-row"><span class="sch-day-lbl">Day 3</span><span class="sch-day-topic">Speed test + revision</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="demo-box reveal d2">
-        <div class="demo-label">Free <em>Demo</em><br>Class — 45 min</div>
-        <div class="demo-phases">
-          <div><div class="demo-t">0 – 5 min</div><div class="demo-a">Warm introduction &amp; getting to know you</div></div>
-          <div><div class="demo-t">5 – 15 min</div><div class="demo-a">Understanding your goals &amp; current level</div></div>
-          <div><div class="demo-t">15 – 35 min</div><div class="demo-a">First lesson — a real class experience</div></div>
-          <div><div class="demo-t">35 – 45 min</div><div class="demo-a">Course overview, Q&amp;A &amp; next steps</div></div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CERTIFICATE PREVIEW -->
-  <section id="certificate-preview">
-    <div class="wrap" style="max-width:1080px;">
-      <div class="reveal">
-        <div class="eyebrow">Course Certificate</div>
-        <h2 class="h2">A certificate you'll<br><em>be proud of</em></h2>
-        <br>
-        <p class="body-p" style="max-width:600px;">Every student who completes a course at As Arabic Academy receives a personalised certificate of completion — a lasting record of your dedication and achievement.</p>
-      </div>
-      <div class="reveal d1" style="margin-top:3rem;">
-        <img src="certificate.jpg" alt="Sample Certificate" style="width:100%;max-width:700px;display:block;margin:0 auto;">
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section id="faq">
-    <div class="wrap" style="max-width:1080px;">
-      <div class="reveal">
-        <div class="eyebrow">Questions</div>
-        <h2 class="h2">Things people<br><em>often ask</em></h2>
-      </div>
-      <div class="faq-wrap reveal d1">
-        <div class="faq-it"><button class="faq-btn" onclick="doFaq(this)">Do I need any prior knowledge of Arabic? <span class="faq-ic">+</span></button><div class="faq-ans">Not at all. This course is built from the very first Arabic letter for complete beginners. All you need is willingness to learn.</div></div>
-        <div class="faq-it"><button class="faq-btn" onclick="doFaq(this)">When does my class start? <span class="faq-ic">+</span></button><div class="faq-ans">After registering, Ashraf Ali will contact you on WhatsApp within 24 hours to schedule your class at a time fully convenient for you. There is no fixed batch start date.</div></div>
-        <div class="faq-it"><button class="faq-btn" onclick="doFaq(this)">Do I pay before the demo class? <span class="faq-ic">+</span></button><div class="faq-ans">No. Your first demo class is entirely free. You pay only after you attend and decide to continue — no pressure, no obligation whatsoever.</div></div>
-        <div class="faq-it"><button class="faq-btn" onclick="doFaq(this)">What device do I need? <span class="faq-ic">+</span></button><div class="faq-ans">A smartphone or laptop with a stable internet connection and Google Meet installed. That is all you need to join.</div></div>
-        <div class="faq-it"><button class="faq-btn" onclick="doFaq(this)">Can I pay month by month? <span class="faq-ic">+</span></button><div class="faq-ans">Yes — always. You pay ₹499/month for Arabic Language or ₹299/month for typing courses. Payments are made monthly in advance prior to the start of classes. No full-course fee is required upfront.</div></div>
-        <div class="faq-it"><button class="faq-btn" onclick="doFaq(this)">Will I receive a certificate? <span class="faq-ic">+</span></button><div class="faq-ans">Yes. Every student who completes the full course receives a certificate of completion from As Arabic Academy.</div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- APPLY -->
-  <section id="apply">
-    <div class="apply-inner">
-      <div class="apply-left reveal">
-        <div class="apply-eyebrow">Enrol Today</div>
-        <h2 class="h2" style="color:var(--bg);">Begin your<br><em style="color:var(--accent2);">journey</em> today</h2>
-        <br>
-        <p class="apply-desc">Register your interest via our Google Form. Ashraf Ali will reach out personally on WhatsApp within 24 hours to schedule your free demo class.</p>
-        <div class="apply-list">
-          <div class="apply-row"><span class="a-lbl">Teacher</span><span class="a-val">Ashraf Ali</span></div>
-          <div class="apply-row"><span class="a-lbl">Email</span><span class="a-val">asarabicacademy@gmail.com</span></div>
-          <div class="apply-row"><span class="a-lbl">Platform</span><span class="a-val">Google Meet — Online</span></div>
-          <div class="apply-row"><span class="a-lbl">Response</span><span class="a-val">Within 24 hours on WhatsApp</span></div>
-          <div class="apply-row"><span class="a-lbl">First Class</span><span class="a-val">Always free</span></div>
+    <!-- PROCESS -->
+    <section id="process">
+        <div class="wrap">
+            <div class="reveal">
+                <div class="eyebrow">How It Works</div>
+                <h2 class="h2">Five steps to<br><em>fluency</em></h2>
+            </div>
+            <div class="process-steps reveal d1">
+                <div class="p-step"><div class="p-n">01</div><div class="p-title">Register</div><div class="p-desc">Fill the Google Form. Takes under two minutes.</div></div>
+                <div class="p-step"><div class="p-n">02</div><div class="p-title">WhatsApp Update</div><div class="p-desc">We’ll message you on WhatsApp with course details</div></div>
+                <div class="p-step"><div class="p-n">03</div><div class="p-title">Enroll</div><div class="p-desc">Confirm your seat by completing the course fee.</div></div>
+                <div class="p-step"><div class="p-n">04</div><div class="p-title">Learn</div><div class="p-desc">Three personal sessions every week — teach, practice, revise.</div></div>
+                <div class="p-step"><div class="p-n">05</div><div class="p-title">Certificate</div><div class="p-desc">Complete your course and receive a certificate.</div></div>
+            </div>
         </div>
-      </div>
-      <div class="apply-cta-box reveal d1">
-        <div class="free-tag">🎁 First class is free</div>
-        <h3>Register via<br><em>Google Form</em></h3>
-        <p>Fill in your details, choose your course, and pick a preferred time. Ashraf Ali will personally confirm your slot within 24 hours.</p>
-        <div class="apply-features">
-          <div class="apply-feature">Takes less than 2 minutes to fill</div>
-          <div class="apply-feature">No payment required to register</div>
-          <div class="apply-feature">Personal WhatsApp confirmation</div>
-          <div class="apply-feature">Flexible scheduling — your time, your pace</div>
+    </section>
+
+    <!-- SCHEDULE -->
+    <section id="schedule">
+        <div class="wrap">
+            <div class="reveal">
+                <div class="eyebrow">Weekly Rhythm</div>
+                <h2 class="h2">A <em>structured</em><br>weekly pattern</h2>
+            </div>
+            <div class="sch-grid reveal d1">
+                <div class="sch-col">
+                    <div class="sch-head"><div class="sch-head-title">Arabic Language</div><div class="sch-head-sub">3 days · 45 min each</div></div>
+                    <div class="sch-body">
+                        <div class="sch-row"><span class="sch-day-lbl">Day 1</span><span class="sch-day-topic">New topic — teach &amp; explain</span></div>
+                        <div class="sch-row"><span class="sch-day-lbl">Day 2</span><span class="sch-day-topic">Practice &amp; written exercise</span></div>
+                        <div class="sch-row"><span class="sch-day-lbl">Day 3</span><span class="sch-day-topic">Revision + small test</span></div>
+                    </div>
+                </div>
+                <div class="sch-col">
+                    <div class="sch-head"><div class="sch-head-title">Arabic Typing</div><div class="sch-head-sub">3 days · 45 min each</div></div>
+                    <div class="sch-body">
+                        <div class="sch-row"><span class="sch-day-lbl">Day 1</span><span class="sch-day-topic">New keys — teach &amp; practice</span></div>
+                        <div class="sch-row"><span class="sch-day-lbl">Day 2</span><span class="sch-day-topic">Typing practice session</span></div>
+                        <div class="sch-row"><span class="sch-day-lbl">Day 3</span><span class="sch-day-topic">Speed test + revision</span></div>
+                    </div>
+                </div>
+                <div class="sch-col">
+                    <div class="sch-head"><div class="sch-head-title">English Typing</div><div class="sch-head-sub">3 days · 45 min each</div></div>
+                    <div class="sch-body">
+                        <div class="sch-row"><span class="sch-day-lbl">Day 1</span><span class="sch-day-topic">New keys — teach &amp; practice</span></div>
+                        <div class="sch-row"><span class="sch-day-lbl">Day 2</span><span class="sch-day-topic">Typing practice session</span></div>
+                        <div class="sch-row"><span class="sch-day-lbl">Day 3</span><span class="sch-day-topic">Speed test + revision</span></div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <a href="https://forms.gle/LrxEFWnXkpmmhwnb7" target="_blank" class="btn-apply">Open Registration Form →</a>
-        <p class="apply-note">After submitting the form, Ashraf Ali will contact you on WhatsApp within 24 hours to schedule your FREE demo class. No payment is required at this stage.</p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-logo"><span class="logo-dot dot"></span>As Arabic Academy</div>
-    <div class="footer-mid">"Making Arabic easy for everyone"</div>
-    <ul class="footer-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#courses">Courses</a></li>
-      <li><a href="#apply">Apply</a></li>
-    </ul>
-  </footer>
+    <!-- CERTIFICATE PREVIEW -->
+    <section id="certificate-preview">
+        <div class="wrap" style="max-width:1080px;">
+            <div class="reveal">
+                <div class="eyebrow">Course Certificate</div>
+                <h2 class="h2">A certificate you'll<br><em>be proud of</em></h2>
+                <br>
+                <p class="body-p" style="max-width:600px;">Every student who completes a course at AS Arabic Academy receives a personalised certificate of completion — a lasting record of your dedication and achievement.</p>
+            </div>
+            <div class="reveal d1" style="margin-top:3rem;">
+                <img src="certificate.jpg" alt="Sample Certificate" style="width:100%;max-width:700px;display:block;margin:0 auto;">
+            </div>
+        </div>
+    </section>
 
-  <script>
-    window.addEventListener('scroll',()=>{
-      document.getElementById('nav').classList.toggle('scrolled',window.scrollY>20);
-    });
-    function toggleNav(){
-      const mobNav = document.getElementById('mobNav');
-      const burger = document.querySelector('.burger');
-      mobNav.classList.toggle('open');
-      burger.classList.toggle('open');
-    }
-    function expandSyl(btn){
-      const item = btn.closest('.course-item');
-      const syl = item.querySelector('.c-syllabus');
-      const open = syl.classList.toggle('open');
-      btn.textContent = open ? 'Syllabus ↑' : 'Syllabus ↓';
-    }
-    function doFaq(btn){
-      const it = btn.parentElement;
-      document.querySelectorAll('.faq-it').forEach(x=>{if(x!==it)x.classList.remove('open');});
-      it.classList.toggle('open');
-    }
-    const io = new IntersectionObserver(entries=>{
-      entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis');});
-    },{threshold:0.07});
-    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-  </script>
+    <!-- FAQ -->
+    <section id="faq">
+        <div class="wrap" style="max-width:1080px;">
+            <div class="reveal">
+                <div class="eyebrow">Questions</div>
+                <h2 class="h2">Things people<br><em>often ask</em></h2>
+            </div>
+            <div class="faq-wrap reveal d1">
+                <div class="faq-it"><button class="faq-btn" onclick="doFaq(this)">Do I need any prior knowledge of Arabic? <span class="faq-ic">+</span></button><div class="faq-ans">Not at all. This course is built from the very first Arabic letter for complete beginners. All you need is willingness to learn.</div></div>
+                <div class="faq-it"><button class="faq-btn" onclick="doFaq(this)">When does my class start? <span class="faq-ic">+</span></button><div class="faq-ans">After registering, Ashraf Ali will contact you on WhatsApp within 24 hours to schedule your class at a time fully convenient for you. There is no fixed batch start date.</div></div>
+                <div class="faq-it"><button class="faq-btn" onclick="doFaq(this)">What device do I need? <span class="faq-ic">+</span></button><div class="faq-ans">A smartphone or laptop with a stable internet connection and Google Meet installed. That is all you need to join.</div></div>
+                <div class="faq-it"><button class="faq-btn" onclick="doFaq(this)">Can I pay month by month? <span class="faq-ic">+</span></button><div class="faq-ans">Yes — always. You pay ₹499/month for Arabic Language or ₹299/month for typing courses. Payments are made monthly in advance prior to the start of classes. No full-course fee is required upfront.</div></div>
+                <div class="faq-it"><button class="faq-btn" onclick="doFaq(this)">Will I receive a certificate? <span class="faq-ic">+</span></button><div class="faq-ans">Yes. Every student who completes the full course receives a certificate of completion from AS Arabic Academy.</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- APPLY -->
+    <section id="apply">
+        <div class="apply-inner">
+            <div class="apply-left reveal">
+                <div class="apply-eyebrow">Enrol Today</div>
+                <h2 class="h2" style="color:var(--bg);">Begin your<br><em style="color:var(--accent2);">journey</em> today</h2>
+                <br>
+                <p class="apply-desc">Register your interest via our Google Form. Ashraf Ali will reach out personally on WhatsApp within 24 hours to schedule your classes.</p>
+                <div class="apply-list">
+                    <div class="apply-row"><span class="a-lbl">Teacher</span><span class="a-val">Ashraf Ali</span></div>
+                    <div class="apply-row"><span class="a-lbl">Email</span><span class="a-val">asarabicacademy@gmail.com</span></div>
+                    <div class="apply-row"><span class="a-lbl">Platform</span><span class="a-val">Google Meet — Online</span></div>
+                    <div class="apply-row"><span class="a-lbl">Response</span><span class="a-val">Within 24 hours on WhatsApp</span></div>
+                </div>
+            </div>
+            <div class="apply-cta-box reveal d1">
+                <h3>Register via<br><em>Google Form</em></h3>
+                <p>Fill in your details, choose your course, and pick a preferred time. Ashraf Ali will personally confirm your slot within 24 hours.</p>
+                <div class="apply-features">
+                    <div class="apply-feature">Takes less than 2 minutes to fill</div>
+                    <div class="apply-feature">No payment required to register</div>
+                    <div class="apply-feature">Personal WhatsApp confirmation</div>
+                    <div class="apply-feature">Flexible scheduling — your time, your pace</div>
+                </div>
+                <a href="https://forms.gle/LrxEFWnXkpmmhwnb7" target="_blank" class="btn-apply">Open Registration Form →</a>
+                <p class="apply-note">After submitting the form, Ashraf Ali will contact you on WhatsApp within 24 hours to confirm your enrolment and schedule your classes.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-logo"><span class="logo-dot dot"></span><i>AS Arabic Academy</i></div>
+        <div class="footer-mid">"Making Arabic easy for everyone"</div>
+        <ul class="footer-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#courses">Courses</a></li>
+            <li><a href="#apply">Apply</a></li>
+        </ul>
+        <div class="footer-bottom-row">
+            <div class="footer-tagline">Learn · Practice · Grow</div>
+            <div class="social-connect">
+                <a href="https://instagram.com/asarabicacademy" target="_blank" rel="noopener">
+                    <svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.2"/></svg>
+                    Instagram
+                </a>
+                <a href="https://youtube.com/@asarabicacademy" target="_blank" rel="noopener">
+                    <svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/><path d="M19.6 5.4C17.4 4.9 12 4.9 12 4.9s-5.4 0-7.6.5C2.7 5.7 2 7.5 2 12s.7 6.3 2.4 6.6c2.2.5 7.6.5 7.6.5s5.4 0 7.6-.5c1.7-.3 2.4-2.1 2.4-6.6s-.7-6.3-2.4-6.6Z"/></svg>
+                    YouTube
+                </a>
+                <a href="https://chat.whatsapp.com/yourgroupinvitelink" target="_blank" rel="noopener">
+                    <svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21l1.65-3.8a9 9 0 1 1 3.5 3.5L3 21z"/><path d="M9 10h.01M12 10h.01M15 10h.01M9 14h6"/></svg>
+                    WhatsApp Group
+                </a>
+                <a href="https://facebook.com/asarabicacademy" target="_blank" rel="noopener">
+                    <svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                    Facebook
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 20);
+        });
+
+        function toggleNav() {
+            const mobNav = document.getElementById('mobNav');
+            const burger = document.querySelector('.burger');
+            mobNav.classList.toggle('open');
+            burger.classList.toggle('open');
+        }
+
+        function expandSyl(btn) {
+            const item = btn.closest('.course-item');
+            const syl = item.querySelector('.c-syllabus');
+            const open = syl.classList.toggle('open');
+            btn.textContent = open ? 'Syllabus ↑' : 'Syllabus ↓';
+        }
+
+        function doFaq(btn) {
+            const it = btn.parentElement;
+            document.querySelectorAll('.faq-it').forEach(x => { if (x !== it) x.classList.remove('open'); });
+            it.classList.toggle('open');
+        }
+        const io = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
+        }, { threshold: 0.07 });
+        document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    </script>
 </body>
 </html>
